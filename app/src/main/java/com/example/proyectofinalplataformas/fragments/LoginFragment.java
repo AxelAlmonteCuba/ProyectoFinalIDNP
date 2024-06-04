@@ -7,11 +7,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.proyectofinalplataformas.HomeActivity;
 import com.example.proyectofinalplataformas.R;
@@ -74,8 +76,20 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
+                if (((edtCorreo.getText().toString().equals("admin") && edtPassword.getText().toString().equals("admin")))) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Bienvenido a mi App", Toast.LENGTH_SHORT).show();
+                    Log.d("Login", "Bienvenido a mi App");
+                    /*Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                    intent.putExtra("ACCOUNT", accontEntityString);
+                    startActivity(intent);*/
+                    Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Error en la autenticacion", Toast.LENGTH_SHORT).show();
+                    Log.d("Login ", "Error en la autenticacion");
+                }
+                /*Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
+                startActivity(intent);*/
             }
         });
         return view;
