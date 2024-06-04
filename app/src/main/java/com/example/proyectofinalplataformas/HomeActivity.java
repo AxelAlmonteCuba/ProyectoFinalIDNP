@@ -13,13 +13,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.proyectofinalplataformas.fragments.GaleriasFragment;
+import com.example.proyectofinalplataformas.fragments.HomeFragment;
+import com.example.proyectofinalplataformas.fragments.MapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
+    private FragmentManager fragmentManager = null;
+    private FragmentTransaction fragmentTransaction = null;
+    private HomeFragment homeFragment = null;
+    private GaleriasFragment galeriasFragment = null;
+    private MapFragment mapFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
         fragmentManager = getSupportFragmentManager();
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavigation);
 
         bottomNavigationView.setSelectedItemId(R.id.menu_home);
 
@@ -40,11 +46,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
                 if(menuItem.getItemId() == R.id.menu_home){
-                    
+                    homeFragment = HomeFragment.newInstance("","");
+                    LoadFragment(homeFragment);
                 } else if (menuItem.getItemId() == R.id.menu_galerias) {
-                    
+                    galeriasFragment = GaleriasFragment.newInstance("","");
+                    LoadFragment(galeriasFragment);
                 } else if (menuItem.getItemId() == R.id.menu_mapa) {
-
+                    mapFragment = MapFragment.newInstance("","");
+                    LoadFragment(mapFragment);
                 } else if (menuItem.getItemId() == R.id.menu_favoritos) {
                     
                 }
@@ -55,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
     private void LoadFragment(Fragment fragment){
         if(fragmentManager != null){
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragmentContainerView,fragment);
+            fragmentTransaction.replace(R.id.Home_Conteiner,fragment);
             fragmentTransaction.commit();
         }
     }
