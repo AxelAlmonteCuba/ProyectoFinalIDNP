@@ -2,6 +2,7 @@ package com.example.proyectofinalplataformas;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -13,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.proyectofinalplataformas.fragments.GaleriasFragment;
+import com.example.proyectofinalplataformas.fragments.FavoritosFragment;
 import com.example.proyectofinalplataformas.fragments.HomeFragment;
 import com.example.proyectofinalplataformas.fragments.MapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,8 +25,9 @@ public class HomeActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = null;
     private FragmentTransaction fragmentTransaction = null;
     private HomeFragment homeFragment = null;
-    private GaleriasFragment galeriasFragment = null;
+    private FavoritosFragment favoritosFragment = null;
     private MapFragment mapFragment = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +41,28 @@ public class HomeActivity extends AppCompatActivity {
         });
         fragmentManager = getSupportFragmentManager();
         BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavigation);
-
+        TextView txtTitle = findViewById(R.id.txtTitle);
         bottomNavigationView.setSelectedItemId(R.id.menu_home);
 
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
                 if(menuItem.getItemId() == R.id.menu_home){
+                    txtTitle.setText("Home");
                     homeFragment = HomeFragment.newInstance("","");
                     LoadFragment(homeFragment);
                 } else if (menuItem.getItemId() == R.id.menu_galerias) {
-                    galeriasFragment = GaleriasFragment.newInstance("","");
-                    LoadFragment(galeriasFragment);
+                    txtTitle.setText("Galerias");
+                    //galeriasFragment = FavoritosFragment.newInstance("","");
+                    //LoadFragment(galeriasFragment);
                 } else if (menuItem.getItemId() == R.id.menu_mapa) {
+                    txtTitle.setText("Mapa");
                     mapFragment = MapFragment.newInstance("","");
                     LoadFragment(mapFragment);
                 } else if (menuItem.getItemId() == R.id.menu_favoritos) {
-                    
+                    txtTitle.setText("Favoritos");
+                    favoritosFragment = FavoritosFragment.newInstance("","");
+                    LoadFragment(favoritosFragment);
                 }
             }
         });
