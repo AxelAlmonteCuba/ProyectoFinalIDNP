@@ -29,10 +29,13 @@ public class LoginFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private FragmentManager fragmentManager = null;
+    private FragmentTransaction fragmentTransaction = null;
     private Button btnLogin  ;
     private TextView edtCorreo;
     private TextView edtPassword;
     private TextView txtRegister;
+    private RegisterFragment registerFragment = null;
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -70,7 +73,8 @@ public class LoginFragment extends Fragment {
         txtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                registerFragment = RegisterFragment.newInstance("","");
+                LoadFragment(registerFragment);
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -94,10 +98,10 @@ public class LoginFragment extends Fragment {
         });
         return view;
     }
-    private void replaceFragment(Fragment fragment) {
+    private void LoadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.Home_Conteiner, fragment);
+        fragmentTransaction.replace(R.id.MainConteiner, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

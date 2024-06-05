@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.proyectofinalplataformas.fragments.FavoritosFragment;
+import com.example.proyectofinalplataformas.fragments.GaleriasFragment;
 import com.example.proyectofinalplataformas.fragments.HomeFragment;
 import com.example.proyectofinalplataformas.fragments.MapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     private HomeFragment homeFragment = null;
     private FavoritosFragment favoritosFragment = null;
     private MapFragment mapFragment = null;
+    private GaleriasFragment galeriasFragment = null;
 
 
     @Override
@@ -53,8 +55,8 @@ public class HomeActivity extends AppCompatActivity {
                     LoadFragment(homeFragment);
                 } else if (menuItem.getItemId() == R.id.menu_galerias) {
                     txtTitle.setText("Galerias");
-                    //galeriasFragment = FavoritosFragment.newInstance("","");
-                    //LoadFragment(galeriasFragment);
+                    galeriasFragment = GaleriasFragment.newInstance("","");
+                    LoadFragment(galeriasFragment);
                 } else if (menuItem.getItemId() == R.id.menu_mapa) {
                     txtTitle.setText("Mapa");
                     mapFragment = MapFragment.newInstance("","");
