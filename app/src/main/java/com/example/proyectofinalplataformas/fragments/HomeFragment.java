@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
         String accountEntityString = getActivity().getIntent().getStringExtra("account");
         Gson gson = new Gson();
         AccountEntity account = gson.fromJson(accountEntityString, AccountEntity.class);
-        txtNameHome.setText(account.getFirstname());
+        txtNameHome.setText("Bienvenido "+account.getFirstname()+" "+account.getLastname()+" al");
         return view;
     }
 }
