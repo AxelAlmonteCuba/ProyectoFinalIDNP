@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "31655568820",
+    "project_id": "centroculturalunsa-e065e",
+    "storage_bucket": "centroculturalunsa-e065e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31655568820:android:e51de96424a4c8e1083ee1",
+        "android_client_info": {
+          "package_name": "com.example.proyectofinalplataformas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31655568820-hk6q7ssrd71u108lgngavcca731l2clk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiMXF5C-YutgoI3970BVGrgJz_pzsEsZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31655568820-hk6q7ssrd71u108lgngavcca731l2clk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
