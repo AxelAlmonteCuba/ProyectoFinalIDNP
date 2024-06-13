@@ -3,11 +3,13 @@ package com.example.proyectofinalplataformas.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +22,16 @@ import com.example.proyectofinalplataformas.Entitys.AccountEntity;
 import com.example.proyectofinalplataformas.HomeActivity;
 import com.example.proyectofinalplataformas.R;
 import com.example.proyectofinalplataformas.ViewModel.ShareViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
+
+import java.util.concurrent.Executor;
 
 
 public class LoginFragment extends Fragment {
@@ -41,6 +52,9 @@ public class LoginFragment extends Fragment {
     private TextView txtRegister;
     private ShareViewModel shareViewModel;
     private RegisterFragment registerFragment = null;
+    private  FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firestore;
+
 
     public LoginFragment() {
         // Required empty public constructor
@@ -85,14 +99,14 @@ public class LoginFragment extends Fragment {
         });
         shareViewModel = new ViewModelProvider(requireActivity()).get(ShareViewModel.class);
 
-        btnLogin.setOnClickListener(v ->{
+        /*btnLogin.setOnClickListener(v ->{
             shareViewModel.getAccount().observe(getViewLifecycleOwner(), accountEntity->{
                 if (((edtCorreo.getText().toString().equals(accountEntity.getEmail()) && edtPassword.getText().toString().equals(accountEntity.getPassword())))) {
                     Toast.makeText(getActivity().getApplicationContext(), "Bienvenido a mi App", Toast.LENGTH_SHORT).show();
                     Log.d("Login", "Bienvenido a mi App");
-                    /*Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                    *//*Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                     intent.putExtra("ACCOUNT", accontEntityString);
-                    startActivity(intent);*/
+                    startActivity(intent);*//*
                     Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
                     Gson gson = new Gson();
                     String accountString = gson.toJson(accountEntity);
@@ -104,9 +118,50 @@ public class LoginFragment extends Fragment {
                 }
             });
 
-                /*Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
-                startActivity(intent);*/
+                *//*Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
+                startActivity(intent);*//*
 
+        });*/
+
+        btnLogin.setOnClickListener(v -> {
+            final String correo = edtCorreo.getText().toString();
+            final String contrasena = edtPassword.getText().toString();
+
+            if (TextUtils.isEmpty(correo) || TextUtils.isEmpty(contrasena)) {
+                Toast.makeText(getActivity(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            firebaseAuth.signInWithEmailAndPassword(correo, contrasena)
+                    .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = firebaseAuth.getCurrentUser();
+                                if (user != null) {
+                                    firestore.collection("users").document(user.getUid()).get()
+                                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                    if (task.isSuccessful() && task.getResult() != null) {
+                                                        String nombre = task.getResult().getString("nombres");
+                                                        String correo = task.getResult().getString("correo");
+                                                        Intent intent = new Intent(getActivity(), HomeActivity.class);
+                                                        intent.putExtra("nombres", nombre);
+                                                        intent.putExtra("correo", correo);
+                                                        startActivity(intent);
+
+                                                    } else {
+                                                        Toast.makeText(getActivity(), "Error al obtener los datos del usuario", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+                                }
+                            } else {
+                                Toast.makeText(getActivity(), "Error al iniciar sesión", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
         });
         return view;
     }
@@ -117,4 +172,7 @@ public class LoginFragment extends Fragment {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+
+
 }
