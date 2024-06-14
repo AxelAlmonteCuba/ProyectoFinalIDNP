@@ -52,8 +52,8 @@ public class LoginFragment extends Fragment {
     private TextView txtRegister;
     private ShareViewModel shareViewModel;
     private RegisterFragment registerFragment = null;
-    private  FirebaseAuth firebaseAuth;
-    private FirebaseFirestore firestore;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
 
     public LoginFragment() {
@@ -133,7 +133,8 @@ public class LoginFragment extends Fragment {
             }
 
             firebaseAuth.signInWithEmailAndPassword(correo, contrasena)
-                    .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
