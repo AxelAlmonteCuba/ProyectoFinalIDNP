@@ -11,15 +11,6 @@
         android:layout_height="650dp"
         android:background="#000000">
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="361dp"
-            android:layout_height="487dp"
-            android:src="@drawable/mapa_centro_cultural"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtSelector" />
-
         <TextView
             android:id="@+id/txtSelector"
             android:layout_width="wrap_content"
