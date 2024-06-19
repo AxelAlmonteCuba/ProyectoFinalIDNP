@@ -113,8 +113,8 @@
 
         <Button
             android:id="@+id/btnRegitrarse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="219dp"
+            android:layout_height="45dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/white"
             android:text="Registrar"
@@ -124,25 +124,29 @@
             app:layout_constraintTop_toBottomOf="@+id/edtContrasenaR" />
 
         <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="O regístrate con cuenta Google"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnRegitrarse" />
-
-        <TextView
             android:id="@+id/txtLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:text="¿Ya tienes cuenta? Inicia sesión"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/btnGoogleRegister" />
+
+        <Button
+            android:id="@+id/btnGoogleRegister"
+            android:layout_width="219dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/white"
+            android:drawableRight="@drawable/google"
+
+            android:text="Registrate con"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegitrarse" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

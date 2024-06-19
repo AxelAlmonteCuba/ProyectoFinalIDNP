@@ -44,6 +44,8 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation ("com.google.firebase:firebase-auth:21.0.1")
     implementation ("com.google.firebase:firebase-firestore:24.4.0")
+    implementation ("com.google.android.gms:play-services-auth:19.2.0")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
