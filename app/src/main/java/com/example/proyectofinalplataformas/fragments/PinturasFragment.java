@@ -61,8 +61,6 @@ public class PinturasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pinturas, container, false);
-        TextView txtTitlePinturas = view.findViewById(R.id.txtTitlePinturas);
-        txtTitlePinturas.setText(nombreFragment);
         return view;
     }
 }
