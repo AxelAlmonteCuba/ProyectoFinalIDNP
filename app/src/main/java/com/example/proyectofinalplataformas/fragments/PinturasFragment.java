@@ -69,14 +69,14 @@ public class PinturasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View vista=inflater.inflate(R.layout.fragment_pinturas, container, false);
+        View view=inflater.inflate(R.layout.fragment_pinturas, container, false);
         listaPinturas=new ArrayList<>();
-        recyclerPinturas=vista.findViewById(R.id.recyclerId);
+        recyclerPinturas=view.findViewById(R.id.recyclerId);
         recyclerPinturas.setLayoutManager(new LinearLayoutManager(getContext()));
         llenarLista();
 
         // Inflate the layout for this fragment
-        return vista;
+        return view;
     }
 
     private void llenarLista() {
