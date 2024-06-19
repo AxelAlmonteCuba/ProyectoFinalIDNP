@@ -3,13 +3,19 @@ package com.example.proyectofinalplataformas.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.proyectofinalplataformas.Adapters.AdaptadorPinturas;
+import com.example.proyectofinalplataformas.Entitys.PinturasVo;
 import com.example.proyectofinalplataformas.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,14 +68,17 @@ public class PinturasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_pinturas, container, false);
+        View vista=inflater.inflate(R.layout.fragment_pinturas, container, false);
         listaPinturas=new ArrayList<>();
-        recyclerPinturas=view.findViewById(R.id.recyclerId);
+        recyclerPinturas=vista.findViewById(R.id.recyclerId);
         recyclerPinturas.setLayoutManager(new LinearLayoutManager(getContext()));
         llenarLista();
 
+        AdaptadorPinturas adapter= new AdaptadorPinturas(listaPinturas);
+        recyclerPinturas.setAdapter(adapter);
+
         // Inflate the layout for this fragment
-        return view;      
+        return vista;
     }
 
     private void llenarLista() {

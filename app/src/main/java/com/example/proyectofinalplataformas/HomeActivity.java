@@ -18,6 +18,7 @@ import com.example.proyectofinalplataformas.fragments.FavoritosFragment;
 import com.example.proyectofinalplataformas.fragments.GaleriasFragment;
 import com.example.proyectofinalplataformas.fragments.HomeFragment;
 import com.example.proyectofinalplataformas.fragments.MapFragment;
+import com.example.proyectofinalplataformas.fragments.PinturasFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
