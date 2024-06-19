@@ -27,7 +27,7 @@ public class MapaView extends View{
                 BitmapFactory.decodeResource(getResources(), R.drawable.galeria3),
                 BitmapFactory.decodeResource(getResources(), R.drawable.galeria4),
                 BitmapFactory.decodeResource(getResources(), R.drawable.galeria5),
-                BitmapFactory.decodeResource(getResources(), R.drawable.galeria6),
+                BitmapFactory.decodeResource(getResources(), R.drawable.galeria_vi),
                 BitmapFactory.decodeResource(getResources(), R.drawable.sala),
         };
         imagenActual = mapaPrincipal;

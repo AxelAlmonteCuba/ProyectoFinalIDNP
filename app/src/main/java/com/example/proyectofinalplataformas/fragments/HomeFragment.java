@@ -3,42 +3,36 @@ package com.example.proyectofinalplataformas.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.proyectofinalplataformas.Entitys.AccountEntity;
 import com.example.proyectofinalplataformas.R;
+import com.example.proyectofinalplataformas.Repositorios.AccountRepository;
+import com.google.gson.Gson;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class HomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private PinturasFragment pinturasFragmentDestacados = null;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -60,7 +54,27 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        TextView txtNameHome = view.findViewById(R.id.txtNamehome);
+        String accountEntityString = getActivity().getIntent().getStringExtra("account");
+        Gson gson = new Gson();
+        AccountEntity account = gson.fromJson(accountEntityString, AccountEntity.class);
+        txtNameHome.setText("Bienvenido "+account.getFirstname()+" "+account.getLastname()+" al");
+
+
+        ImageView imgMasDestacados = view.findViewById(R.id.imgMasDestacados);
+
+        imgMasDestacados.setOnClickListener(v -> {
+            pinturasFragmentDestacados = PinturasFragment.newInstance("Destacados");
+            LoadFragment(pinturasFragmentDestacados);
+        });
+        return view;
+    }
+    public void LoadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.Home_Conteiner, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

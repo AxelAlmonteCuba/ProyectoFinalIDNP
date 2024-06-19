@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,8 +16,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyectofinalplataformas.Entitys.AccountEntity;
 import com.example.proyectofinalplataformas.HomeActivity;
 import com.example.proyectofinalplataformas.R;
+import com.example.proyectofinalplataformas.ViewModel.ShareViewModel;
+import com.google.gson.Gson;
 
 
 public class LoginFragment extends Fragment {
@@ -35,7 +39,9 @@ public class LoginFragment extends Fragment {
     private TextView edtCorreo;
     private TextView edtPassword;
     private TextView txtRegister;
+    private ShareViewModel shareViewModel;
     private RegisterFragment registerFragment = null;
+
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -77,28 +83,34 @@ public class LoginFragment extends Fragment {
                 LoadFragment(registerFragment);
             }
         });
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (((edtCorreo.getText().toString().equals("admin") && edtPassword.getText().toString().equals("admin")))) {
+        shareViewModel = new ViewModelProvider(requireActivity()).get(ShareViewModel.class);
+
+        btnLogin.setOnClickListener(v ->{
+            shareViewModel.getAccount().observe(getViewLifecycleOwner(), accountEntity->{
+                if (((edtCorreo.getText().toString().equals(accountEntity.getEmail()) && edtPassword.getText().toString().equals(accountEntity.getPassword())))) {
                     Toast.makeText(getActivity().getApplicationContext(), "Bienvenido a mi App", Toast.LENGTH_SHORT).show();
                     Log.d("Login", "Bienvenido a mi App");
                     /*Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                     intent.putExtra("ACCOUNT", accontEntityString);
                     startActivity(intent);*/
                     Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
+                    Gson gson = new Gson();
+                    String accountString = gson.toJson(accountEntity);
+                    intent.putExtra("account",accountString);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getActivity().getApplicationContext(), "Error en la autenticacion", Toast.LENGTH_SHORT).show();
                     Log.d("Login ", "Error en la autenticacion");
                 }
+            });
+
                 /*Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
                 startActivity(intent);*/
-            }
+
         });
         return view;
     }
-    private void LoadFragment(Fragment fragment) {
+    public void LoadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.MainConteiner, fragment);

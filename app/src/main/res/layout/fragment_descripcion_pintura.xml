@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txtTituloPinturaDescripcion"
             android:layout_width="175dp"
             android:layout_height="38dp"
             android:text="Mona Lisa"
@@ -23,7 +23,7 @@
             tools:layout_editor_absoluteY="29dp" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imgPinturaDescr"
             android:layout_width="411dp"
             android:layout_height="246dp"
             android:layout_marginTop="80dp"
@@ -33,65 +33,87 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="101dp"
-            android:layout_height="26dp"
-            android:fontFamily="sans-serif-black"
-            android:text="Artista:"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="67dp"
-            tools:layout_editor_absoluteY="352dp" />
+        <ScrollView
+            android:layout_width="411dp"
+            android:layout_height="403dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPinturaDescr">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="193dp"
-            android:layout_height="27dp"
-            android:fontFamily="sans-serif-black"
-            android:text="Fecha de creacion:"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="67dp"
-            tools:layout_editor_absoluteY="437dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="101dp"
-            android:layout_height="26dp"
-            android:fontFamily="sans-serif-black"
-            android:text="Descripcion"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="67dp"
-            tools:layout_editor_absoluteY="518dp" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="248dp"
+                    android:gravity="start"
+                    android:text="Artista: "
+                    android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="192dp"
-            android:layout_height="27dp"
-            android:textColor="#FFFFFF"
-            android:text="Leonardo Davinci"
-            tools:layout_editor_absoluteX="67dp"
-            tools:layout_editor_absoluteY="393dp" />
+                <TextView
+                    android:id="@+id/txtArtistaDesc"
+                    android:layout_width="161dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="248dp"
+                    android:gravity="start"
+                    android:text="Leonardo Davinci"
+                    android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="192dp"
-            android:layout_height="27dp"
-            android:text="3 Mayo 2024"
-            android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="67dp"
-            tools:layout_editor_absoluteY="479dp" />
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="106dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="248dp"
+                    android:gravity="start"
+                    android:text="Fecha de creacion"
+                    android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="296dp"
-            android:layout_height="108dp"
-            android:text="Obra maestra de Leonardo da Vinci, cautiva a los espectadores con su enigmática mirada y sonrisa sutil. Pintada durante el Renacimiento "
-            android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="564dp" />
+                <TextView
+                    android:id="@+id/txtFechaDesc"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="106dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="248dp"
+                    android:gravity="start"
+                    android:text="TextView"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="173dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="248dp"
+                    android:gravity="start"
+                    android:text="Descripcion"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/txtDescripcionDesc"
+                    android:layout_width="204dp"
+                    android:layout_height="98dp"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="248dp"
+                    android:gravity="start"
+                    android:text="TextView"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

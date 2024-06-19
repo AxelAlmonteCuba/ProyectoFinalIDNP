@@ -6,130 +6,131 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="650dp"
-        android:background="#000000">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="162dp"
-            android:layout_height="166dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/baseline_account_circle_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Usuario"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="369dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/white"
-            android:text="DESTACADOS"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="35dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000">
 
-        <LinearLayout
-            android:id="@+id/LayouDestacados"
-            android:layout_width="397dp"
-            android:layout_height="143dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15">
+                <ImageView
+                    android:id="@+id/imgPinturaDescr"
+                    android:layout_width="162dp"
+                    android:layout_height="166dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/baseline_account_circle_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/monalisa" />
+                <TextView
+                    android:id="@+id/txtNamehome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Bienvenido user al "
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgPinturaDescr" />
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/unica" />
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="369dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/white"
+                    android:text="DESTACADOS"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="35dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/more" />
+                <LinearLayout
+                    android:id="@+id/LayouDestacados"
+                    android:layout_width="397dp"
+                    android:layout_height="143dp"
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15">
 
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/monalisa" />
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/unica" />
+
+                    <ImageView
+                        android:id="@+id/imgMasDestacados"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/more" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="20dp"
+                    android:text="Centro Cultural UNSA"
+                    android:textColor="@color/white"
+                    android:textSize="27dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNamehome" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Horarios"
+                    android:textColor="@color/white"
+                    android:textSize="27dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="start"
+                    android:text="Lunes - Viernes  8 am - 8:15 pm\nSabado  9:39 am - 4:15 pm\nDomingo :  Cerrado
+        "
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/txtGalerias"
-            android:layout_width="369dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/white"
-
-            android:text="Galerias"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="35dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LayouDestacados" />
-
-        <LinearLayout
-            android:layout_width="395dp"
-            android:layout_height="113dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtGalerias">
-
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="107dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/galeria_i" />
-
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="107dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/galeria_ii" />
-
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="107dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/galeria_i" />
-
-            <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/more" />
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

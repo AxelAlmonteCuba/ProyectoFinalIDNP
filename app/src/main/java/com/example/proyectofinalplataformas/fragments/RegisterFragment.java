@@ -3,19 +3,23 @@ package com.example.proyectofinalplataformas.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.proyectofinalplataformas.Entitys.AccountEntity;
 import com.example.proyectofinalplataformas.R;
+import com.example.proyectofinalplataformas.ViewModel.ShareViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegisterFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class RegisterFragment extends Fragment {
+    private LoginFragment loginFragment = null;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,20 +29,13 @@ public class RegisterFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ShareViewModel shareViewModel;
 
     public RegisterFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegisterFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static RegisterFragment newInstance(String param1, String param2) {
         RegisterFragment fragment = new RegisterFragment();
         Bundle args = new Bundle();
@@ -61,6 +58,41 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false);
+        View view = inflater.inflate(R.layout.fragment_register, container, false);
+        shareViewModel = new ViewModelProvider(requireActivity()).get(ShareViewModel.class);
+
+        TextView txtLogin = view.findViewById(R.id.txtLogin);
+        Button btnRegistrate = view.findViewById(R.id.btnRegitrarse);
+
+        btnRegistrate.setOnClickListener(v -> {
+            TextView edtNombresR = view.findViewById(R.id.edtNombresR);
+            TextView edtApellidosR = view.findViewById(R.id.edtApellidosR);
+            TextView edtCorreoR = view.findViewById(R.id.edtCorreoR);
+            TextView edtContrasenaR = view.findViewById(R.id.edtContrasenaR);
+            AccountEntity account = new AccountEntity();
+            account.setFirstname(edtNombresR.getText().toString());
+            account.setLastname(edtApellidosR.getText().toString());
+            account.setEmail(edtCorreoR.getText().toString());
+            account.setPassword(edtContrasenaR.getText().toString());
+            shareViewModel.SetAccount(account);
+
+            loginFragment = LoginFragment.newInstance("", "");
+            LoadFragment(loginFragment);
+
+        });
+        txtLogin.setOnClickListener(v -> {
+            loginFragment = LoginFragment.newInstance("", "");
+            LoadFragment(loginFragment);
+
+        });
+        return view;
+    }
+
+    public void LoadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.MainConteiner, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
