@@ -3,10 +3,13 @@ package com.example.proyectofinalplataformas.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.proyectofinalplataformas.Entitys.AccountEntity;
@@ -22,6 +25,8 @@ public class HomeFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+
+    private PinturasFragment pinturasFragmentDestacados = null;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -55,6 +60,21 @@ public class HomeFragment extends Fragment {
         Gson gson = new Gson();
         AccountEntity account = gson.fromJson(accountEntityString, AccountEntity.class);
         txtNameHome.setText("Bienvenido "+account.getFirstname()+" "+account.getLastname()+" al");
+
+
+        ImageView imgMasDestacados = view.findViewById(R.id.imgMasDestacados);
+
+        imgMasDestacados.setOnClickListener(v -> {
+            pinturasFragmentDestacados = PinturasFragment.newInstance("Destacados");
+            LoadFragment(pinturasFragmentDestacados);
+        });
         return view;
+    }
+    public void LoadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.Home_Conteiner, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
