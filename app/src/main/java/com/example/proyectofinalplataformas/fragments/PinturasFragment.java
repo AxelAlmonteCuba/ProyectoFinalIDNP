@@ -26,6 +26,9 @@ public class PinturasFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String nombreFragment;
 
+    RecyclerView recyclerPinturas;
+    ArrayList<PinturasVo> listaPinturas;
+
 
     public PinturasFragment() {
         // Required empty public constructor
@@ -59,7 +62,25 @@ public class PinturasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view=inflater.inflate(R.layout.fragment_pinturas, container, false);
+        listaPinturas=new ArrayList<>();
+        recyclerPinturas=view.findViewById(R.id.recyclerId);
+        recyclerPinturas.setLayoutManager(new LinearLayoutManager(getContext()));
+        llenarLista();
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pinturas, container, false);        
+        return view;      
+    }
+
+    private void llenarLista() {
+        listaPinturas.add(new PinturasVo("Mono liso 1","Davinci",R.drawable.uno));
+        listaPinturas.add(new PinturasVo("Mono liso 2","Axelito",R.drawable.dos));
+        listaPinturas.add(new PinturasVo("Mono liso 3","Feorella",R.drawable.tres));
+        listaPinturas.add(new PinturasVo("Mono liso 4","Raulin",R.drawable.cuatro));
+        listaPinturas.add(new PinturasVo("Mono liso 5","Aluyis",R.drawable.cinco));
+        listaPinturas.add(new PinturasVo("Mono liso 6","El orejas",R.drawable.seis));
+        listaPinturas.add(new PinturasVo("Mono liso 7","Miguel Angel",R.drawable.siete));
+        listaPinturas.add(new PinturasVo("Mono liso 8","Alguien",R.drawable.ocho));
+
     }
 }
