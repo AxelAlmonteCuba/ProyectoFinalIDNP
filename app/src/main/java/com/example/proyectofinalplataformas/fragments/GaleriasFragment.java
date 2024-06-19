@@ -75,31 +75,31 @@ public class GaleriasFragment extends Fragment {
         ImageView imgGaleria7 = view.findViewById(R.id.imgGaleria7);
 
         imgGaleria1.setOnClickListener(v -> {
-            pinturasFragment = PinturasFragment.newInstance("","");
+            pinturasFragment = PinturasFragment.newInstance("Galeria I");
             LoadFragment(pinturasFragment);
         });
         imgGaleria2.setOnClickListener(v -> {
-            pinturasFragment = PinturasFragment.newInstance("","");
+            pinturasFragment = PinturasFragment.newInstance("Galeria II");
             LoadFragment(pinturasFragment);
         });
         imgGaleria3.setOnClickListener(v -> {
-            pinturasFragment = PinturasFragment.newInstance("","");
+            pinturasFragment = PinturasFragment.newInstance("Galeria III");
             LoadFragment(pinturasFragment);
         });
         imgGaleria4.setOnClickListener(v -> {
-            pinturasFragment = PinturasFragment.newInstance("","");
+            pinturasFragment = PinturasFragment.newInstance("Galeria IV");
             LoadFragment(pinturasFragment);
         });
         imgGaleria5.setOnClickListener(v -> {
-            pinturasFragment = PinturasFragment.newInstance("","");
+            pinturasFragment = PinturasFragment.newInstance("Galeria V");
             LoadFragment(pinturasFragment);
         });
         imgGaleria6.setOnClickListener(v -> {
-            pinturasFragment = PinturasFragment.newInstance("","");
+            pinturasFragment = PinturasFragment.newInstance("Galeria VI");
             LoadFragment(pinturasFragment);
         });
         imgGaleria7.setOnClickListener(v -> {
-            pinturasFragment = PinturasFragment.newInstance("","");
+            pinturasFragment = PinturasFragment.newInstance("Galeria VII");
             LoadFragment(pinturasFragment);
         });
         return view;
