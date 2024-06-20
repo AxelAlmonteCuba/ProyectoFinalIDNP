@@ -1,6 +1,6 @@
 package com.example.proyectofinalplataformas.fragments;
 
-import android.os.Bundle;
+import  android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.proyectofinalplataformas.MapView;
+import com.example.proyectofinalplataformas.view.MapView;
 
 public class MapFragment extends Fragment {
 
