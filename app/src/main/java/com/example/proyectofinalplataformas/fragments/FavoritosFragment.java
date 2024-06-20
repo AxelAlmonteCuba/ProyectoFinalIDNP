@@ -3,12 +3,20 @@ package com.example.proyectofinalplataformas.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.proyectofinalplataformas.Adapters.AdaptadorFavoritos;
+import com.example.proyectofinalplataformas.Adapters.AdaptadorPinturas;
+import com.example.proyectofinalplataformas.Entitys.FavoritosVo;
+import com.example.proyectofinalplataformas.Entitys.PinturasVo;
 import com.example.proyectofinalplataformas.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +33,9 @@ public class FavoritosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    RecyclerView recyclerFavoritos;
+    ArrayList<FavoritosVo> listaFavoritos;
 
     public FavoritosFragment() {
         // Required empty public constructor
@@ -60,7 +71,33 @@ public class FavoritosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favoritos, container, false);
+
+
+
+        View vista=inflater.inflate(R.layout.fragment_favoritos, container, false);
+        listaFavoritos=new ArrayList<>();
+        recyclerFavoritos=vista.findViewById(R.id.recyclerId2);
+        recyclerFavoritos.setLayoutManager(new LinearLayoutManager(getContext()));
+        llenarLista();
+
+        AdaptadorFavoritos adaptador= new AdaptadorFavoritos(listaFavoritos);
+        recyclerFavoritos.setAdapter(adaptador);
+
+
+        return vista;
+
+    }
+
+    private void llenarLista() {
+
+        listaFavoritos.add(new FavoritosVo("Mono liso 1","Davinci",R.drawable.uno,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("Mono liso 2","Axelito",R.drawable.dos,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("Mono liso 3","Feorella",R.drawable.tres,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("Mono liso 4","Raulin",R.drawable.cuatro,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("Mono liso 5","Aluyis",R.drawable.cinco,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("Mono liso 6","El orejas",R.drawable.seis,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("Mono liso 7","Miguel Angel",R.drawable.siete,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("Mono liso 8","Alguien",R.drawable.ocho,R.drawable.baseline_favorite_24));
+
     }
 }
