@@ -29,8 +29,10 @@
         android:background="#000000"
         app:layout_constraintBottom_toTopOf="@+id/btnNavigation"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -67,11 +69,12 @@
             android:layout_weight="1"
             android:background="@color/black" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="64dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/baseline_account_circle_24" />
+            app:srcCompat="@drawable/baseline_logout_24" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
