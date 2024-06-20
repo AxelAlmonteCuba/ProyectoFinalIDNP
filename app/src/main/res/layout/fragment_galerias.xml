@@ -7,68 +7,197 @@
     android:background="#000000"
     tools:context=".fragments.GaleriasFragment" >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="253dp">
+                android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="134dp"
-                    android:layout_height="154dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="40dp"
-                    android:src="@drawable/unica"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="71dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Galeria I"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="134dp"
-                    android:layout_height="154dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:src="@drawable/monalisa"
+                <LinearLayout
+                    android:layout_width="428dp"
+                    android:layout_height="877dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView4"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Galeria II"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.645"
-                    app:layout_constraintStart_toEndOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView5"
-                    android:textColor="@color/white"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imgGaleria1"
+                            android:layout_width="134dp"
+                            android:layout_height="154dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/unica"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="71dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Galeria I"
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imgGaleria1" />
+
+                        <ImageView
+                            android:id="@+id/imgGaleria2"
+                            android:layout_width="134dp"
+                            android:layout_height="154dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginEnd="40dp"
+                            android:src="@drawable/monalisa"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgGaleria1"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Galeria II"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.645"
+                            app:layout_constraintStart_toEndOf="@+id/textView3"
+                            app:layout_constraintTop_toBottomOf="@+id/imgGaleria2" />
+
+                        <ImageView
+                            android:id="@+id/imgGaleria3"
+                            android:layout_width="134dp"
+                            android:layout_height="154dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/galeria_i"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                        <ImageView
+                            android:id="@+id/imgGaleria4"
+                            android:layout_width="134dp"
+                            android:layout_height="154dp"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginEnd="40dp"
+                            android:src="@drawable/galeria_ii"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.904"
+                            app:layout_constraintStart_toEndOf="@+id/imgGaleria3"
+                            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="71dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Galeria III"
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imgGaleria3" />
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Galeria IV"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.625"
+                            app:layout_constraintStart_toEndOf="@+id/textView19"
+                            app:layout_constraintTop_toBottomOf="@+id/imgGaleria4" />
+
+                        <ImageView
+                            android:id="@+id/imgGaleria5"
+                            android:layout_width="134dp"
+                            android:layout_height="154dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/galeria_iii"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="71dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Galeria V"
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imgGaleria5" />
+
+                        <ImageView
+                            android:id="@+id/imgGaleria6"
+                            android:layout_width="134dp"
+                            android:layout_height="154dp"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginEnd="40dp"
+                            android:src="@drawable/galeria_vi"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.931"
+                            app:layout_constraintStart_toEndOf="@+id/imgGaleria5"
+                            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Galeria VI"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.625"
+                            app:layout_constraintStart_toEndOf="@+id/textView21"
+                            app:layout_constraintTop_toBottomOf="@+id/imgGaleria6" />
+
+                        <ImageView
+                            android:id="@+id/imgGaleria7"
+                            android:layout_width="138dp"
+                            android:layout_height="96dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/galeriavii"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.137"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="71dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="302dp"
+                            android:text="Galeria VII"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imgGaleria7" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </FrameLayout>
