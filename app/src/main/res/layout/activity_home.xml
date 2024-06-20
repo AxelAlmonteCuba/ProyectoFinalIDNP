@@ -70,7 +70,7 @@
             android:background="@color/black" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imgLogout"
             android:layout_width="64dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

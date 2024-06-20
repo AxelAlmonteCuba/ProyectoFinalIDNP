@@ -1,7 +1,9 @@
 package com.example.proyectofinalplataformas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +23,7 @@ import com.example.proyectofinalplataformas.fragments.MapFragment;
 import com.example.proyectofinalplataformas.fragments.PinturasFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -30,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
     private FavoritosFragment favoritosFragment = null;
     private MapFragment mapFragment = null;
     private GaleriasFragment galeriasFragment = null;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
 
     @Override
@@ -46,13 +50,22 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavigation);
         TextView txtTitle = findViewById(R.id.txtTitle);
         bottomNavigationView.setSelectedItemId(R.id.menu_home);
+        ImageView imgLogout = findViewById(R.id.imgLogout);
 
+        imgLogout.setOnClickListener(v -> {
+            firebaseAuth.signOut();
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);  // Asumiendo que LoginActivity inicia LoginFragment
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish(); // Finaliza
+        });
+        String nombre = getIntent().getStringExtra("nombres");
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
                 if(menuItem.getItemId() == R.id.menu_home){
                     txtTitle.setText("Home");
-                    homeFragment = HomeFragment.newInstance("");
+                    homeFragment = HomeFragment.newInstance(nombre);
                     LoadFragment(homeFragment);
                 } else if (menuItem.getItemId() == R.id.menu_galerias) {
                     txtTitle.setText("Galerias");
