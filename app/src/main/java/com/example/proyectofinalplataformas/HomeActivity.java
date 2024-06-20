@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
                 if(menuItem.getItemId() == R.id.menu_home){
                     txtTitle.setText("Home");
-                    homeFragment = HomeFragment.newInstance("","");
+                    homeFragment = HomeFragment.newInstance("");
                     LoadFragment(homeFragment);
                 } else if (menuItem.getItemId() == R.id.menu_galerias) {
                     txtTitle.setText("Galerias");
