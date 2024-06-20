@@ -1,4 +1,21 @@
-{
+package com.example.proyectofinalplataformas.fragments;
+
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.proyectofinalplataformas.Entitys.AccountEntity;
+import com.example.proyectofinalplataformas.R;
+import com.example.proyectofinalplataformas.Repositorios.AccountRepository;
+import com.google.gson.Gson;
+
+
+public class HomeFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
