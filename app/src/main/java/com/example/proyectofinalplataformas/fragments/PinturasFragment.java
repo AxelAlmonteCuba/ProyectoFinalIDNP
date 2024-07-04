@@ -26,7 +26,7 @@ public class PinturasFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String NombreFragment = "nombreFragment";
+    private static final String NombreFragment = "";
 
 
     // TODO: Rename and change types of parameters
@@ -69,6 +69,8 @@ public class PinturasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista=inflater.inflate(R.layout.fragment_pinturas, container, false);
+        TextView titulo = vista.findViewById(R.id.tituloGaleria);
+        titulo.setText(nombreFragment);
         listaPinturas=new ArrayList<>();
         recyclerPinturas=vista.findViewById(R.id.recyclerId);
         recyclerPinturas.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -82,14 +84,14 @@ public class PinturasFragment extends Fragment {
     }
 
     private void llenarLista() {
-        listaPinturas.add(new PinturasVo("Mono liso 1","Davinci",R.drawable.uno));
-        listaPinturas.add(new PinturasVo("Mono liso 2","Axelito",R.drawable.dos));
-        listaPinturas.add(new PinturasVo("Mono liso 3","Feorella",R.drawable.tres));
-        listaPinturas.add(new PinturasVo("Mono liso 4","Raulin",R.drawable.cuatro));
-        listaPinturas.add(new PinturasVo("Mono liso 5","Aluyis",R.drawable.cinco));
-        listaPinturas.add(new PinturasVo("Mono liso 6","El orejas",R.drawable.seis));
-        listaPinturas.add(new PinturasVo("Mono liso 7","Miguel Angel",R.drawable.siete));
-        listaPinturas.add(new PinturasVo("Mono liso 8","Alguien",R.drawable.ocho));
+        listaPinturas.add(new PinturasVo("Mona Lisa","Davinci",R.drawable.uno));
+        listaPinturas.add(new PinturasVo("Noche estrellada","Axelito",R.drawable.dos));
+        listaPinturas.add(new PinturasVo("La ultima cena","Feorella",R.drawable.tres));
+        listaPinturas.add(new PinturasVo("La gran ola","Raulin",R.drawable.cuatro));
+        listaPinturas.add(new PinturasVo("Guernica","Aluyis",R.drawable.cinco));
+        listaPinturas.add(new PinturasVo("La ultima cena","El orejas",R.drawable.seis));
+        listaPinturas.add(new PinturasVo("Joven de la perla","Miguel Angel",R.drawable.siete));
+        listaPinturas.add(new PinturasVo("Nacimiento de Venus","Alguien",R.drawable.ocho));
 
     }
 }
