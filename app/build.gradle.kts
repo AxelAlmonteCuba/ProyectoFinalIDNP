@@ -45,6 +45,7 @@ dependencies {
     implementation ("com.google.firebase:firebase-auth:21.0.1")
     implementation ("com.google.firebase:firebase-firestore:24.4.0")
     implementation ("com.google.android.gms:play-services-auth:19.2.0")
+    implementation(libs.room.common)
 
 
     testImplementation(libs.junit)
