@@ -8,13 +8,30 @@ public class Pintura {
     @PrimaryKey(autoGenerate = true)
     private int pinturaID;
     private String titulo;
-    private Autor autorIDP;
-    private String salaIDP;
+    private int autorIDP;
+    private int salaIDP;
+
+    public int getSalaIDP() {
+        return salaIDP;
+    }
+
+    public void setSalaIDP(int salaID) {
+        this.salaIDP = salaID;
+    }
+
+    public int getAutorIDP() {
+        return autorIDP;
+    }
+
+    public void setAutorIDP(int autorIDP) {
+        this.autorIDP = autorIDP;
+    }
+
     private String tecnica;
     private String categoria;
     private String descripcion;
     private int año;
-    private String enlaceImg;
+    private int enlaceImg;
 
     public String getTitulo() {
         return titulo;
@@ -24,21 +41,8 @@ public class Pintura {
         this.titulo = titulo;
     }
 
-    public Autor getAutor() {
-        return autorIDP;
-    }
 
-    public void setAutor(Autor autor) {
-        this.autorIDP = autor;
-    }
 
-    public String getSala() {
-        return salaIDP;
-    }
-
-    public void setSala(String sala) {
-        this.salaIDP = sala;
-    }
 
     public String getTecnica() {
         return tecnica;
@@ -52,9 +56,14 @@ public class Pintura {
         return categoria;
     }
 
-    public int getId() {
+    public int getPinturaID() {
         return pinturaID;
     }
+
+    public void setPinturaID(int pinturaID) {
+        this.pinturaID = pinturaID;
+    }
+
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
@@ -76,11 +85,11 @@ public class Pintura {
         this.año = año;
     }
 
-    public String getEnlaceImg() {
+    public int getEnlaceImg() {
         return enlaceImg;
     }
 
-    public void setEnlaceImg(String enlaceImg) {
+    public void setEnlaceImg(int enlaceImg) {
         this.enlaceImg = enlaceImg;
     }
 }

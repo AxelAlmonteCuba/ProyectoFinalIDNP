@@ -6,17 +6,23 @@ import androidx.room.PrimaryKey;
 public class Autor {
     @PrimaryKey(autoGenerate = true)
     private int autorID;
+
+
+
+    public void setAutorID(int autorID) {
+        this.autorID = autorID;
+    }
+
+
+
     private String nombreA;
     private String apellido;
 
-    public int getId() {
-        return autorID;
-    }
 
-    public String getNombre() {
+    public String getNombreA() {
         return nombreA;
     }
-    public void setNombre(String nombre) {
+    public void setNombreA(String nombre) {
         this.nombreA = nombre;
     }
     public String getApellido() {
@@ -24,5 +30,8 @@ public class Autor {
     }
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+    public int getAutorID() {
+        return autorID;
     }
 }
