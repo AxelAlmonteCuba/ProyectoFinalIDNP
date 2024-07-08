@@ -14,8 +14,8 @@ public class SalaWithPintura {
     public Sala sala;
 
     @Relation(
-            parentColumn = "salaID",
-            entityColumn = "salaIDP"
+            parentColumn = "salaIDP",
+            entityColumn = "salaID"
     )
     public List<Pintura> pinturas;
 }
