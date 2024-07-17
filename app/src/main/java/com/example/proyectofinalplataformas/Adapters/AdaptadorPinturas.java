@@ -14,10 +14,12 @@ import com.example.proyectofinalplataformas.R;
 
 import java.util.ArrayList;
 
-public class AdaptadorPinturas extends RecyclerView.Adapter<AdaptadorPinturas.ViewHolderPinturas> {
+public class AdaptadorPinturas
+        extends RecyclerView.Adapter<AdaptadorPinturas.ViewHolderPinturas>
+        implements View.OnClickListener{
 
     ArrayList<PinturasVo> listaPinturas;
-
+    private View.OnClickListener listener;
     public AdaptadorPinturas(ArrayList<PinturasVo> listaPinturas) {
         this.listaPinturas = listaPinturas;
     }
@@ -25,7 +27,7 @@ public class AdaptadorPinturas extends RecyclerView.Adapter<AdaptadorPinturas.Vi
     @Override
     public ViewHolderPinturas onCreateViewHolder( ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_pinturas,null,false);
-
+        view.setOnClickListener(this);
         return new ViewHolderPinturas(view);
     }
 
@@ -40,6 +42,15 @@ public class AdaptadorPinturas extends RecyclerView.Adapter<AdaptadorPinturas.Vi
     @Override
     public int getItemCount() {
         return listaPinturas.size();
+    }
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
+    }
+    @Override
+    public void onClick(View view) {
+        if(listener!=null){
+            listener.onClick(view);
+        }
     }
 
     public class ViewHolderPinturas extends RecyclerView.ViewHolder {
