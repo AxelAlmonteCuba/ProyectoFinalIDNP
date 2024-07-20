@@ -4,10 +4,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.proyectofinalplataformas.CSV.LectorCSV;
+import com.example.proyectofinalplataformas.Entitys.Pintura;
 import com.example.proyectofinalplataformas.R;
 
 /**
@@ -59,6 +63,22 @@ public class DescripcionPinturaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_descripcion_pintura, container, false);
+        LectorCSV lectorCSV = new LectorCSV(getActivity());
+        Pintura pintura = lectorCSV.obtenerPinturaPorTitulo(nombre);
+
+
+        if (pintura != null) {
+            Log.d("descriotion",nombre);
+            TextView tituloTextView = view.findViewById(R.id.txtTituloPinturaDescripcion);
+            TextView autorTextView = view.findViewById(R.id.txtArtistaDesc);
+            TextView añoTextView = view.findViewById(R.id.txtFechaDesc);
+            TextView descripcionTextView = view.findViewById(R.id.txtDescripcionDesc);
+
+            tituloTextView.setText(pintura.getTitulo());
+            autorTextView.setText(pintura.getAutor());
+            añoTextView.setText(String.valueOf(pintura.getAño()));
+            descripcionTextView.setText(pintura.getDescripcion());
+        }
         return view;
     }
 }

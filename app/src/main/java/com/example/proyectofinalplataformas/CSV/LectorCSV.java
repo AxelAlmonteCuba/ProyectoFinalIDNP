@@ -1,6 +1,7 @@
 package com.example.proyectofinalplataformas.CSV;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.proyectofinalplataformas.Entitys.Pintura;
 
@@ -21,19 +22,23 @@ public class LectorCSV {
 
     public List<Pintura> cargarPinturas() {
         List<Pintura> pinturas = new ArrayList<>();
+        int conttador = 0;
         try {
-            InputStream is = contexto.getAssets().open("paintings.csv");
+            InputStream is = contexto.getAssets().open("paitings.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String linea;
             while ((linea = reader.readLine()) != null) {
                 String[] tokens = linea.split(",");
-                if (tokens.length == 4) {
+
+                if (tokens.length == 4 && conttador > 0) {
                     String titulo = tokens[0];
                     String autor = tokens[1];
+                    Log.d("klecotr",titulo);
                     int año = Integer.parseInt(tokens[2]);
                     String descripcion = tokens[3];
                     pinturas.add(new Pintura(titulo, autor, año, descripcion));
                 }
+                conttador++;
             }
             reader.close();
         } catch (IOException e) {
@@ -44,11 +49,12 @@ public class LectorCSV {
 
     public Pintura obtenerPinturaPorTitulo(String titulo) {
         for (Pintura pintura : cargarPinturas()) {
-            if (pintura.getTitulo().equalsIgnoreCase(titulo)) {
+            if (pintura.getTitulo().trim().equalsIgnoreCase(titulo.trim())) {
                 return pintura;
             }
         }
         return null;
     }
+
 }
 

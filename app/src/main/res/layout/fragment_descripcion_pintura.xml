@@ -15,28 +15,30 @@
             android:id="@+id/txtTituloPinturaDescripcion"
             android:layout_width="175dp"
             android:layout_height="38dp"
+            android:layout_marginTop="20dp"
             android:text="Mona Lisa"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
-            tools:layout_editor_absoluteX="119dp"
-            tools:layout_editor_absoluteY="29dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imgPinturaDescr"
             android:layout_width="411dp"
             android:layout_height="246dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/mona_lisa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTituloPinturaDescripcion" />
 
         <ScrollView
             android:layout_width="411dp"
             android:layout_height="403dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
