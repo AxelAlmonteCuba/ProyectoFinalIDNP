@@ -1,5 +1,6 @@
 package com.example.proyectofinalplataformas.fragments;
 
+import android.content.Intent;
 import  android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,12 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.lang.reflect.Field;
 
 import com.example.proyectofinalplataformas.CSV.LectorCSV;
 import com.example.proyectofinalplataformas.Entitys.Pintura;
 import com.example.proyectofinalplataformas.R;
+import com.example.proyectofinalplataformas.Service.AudioService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,6 +69,7 @@ public class DescripcionPinturaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_descripcion_pintura, container, false);
         LectorCSV lectorCSV = new LectorCSV(getActivity());
         Pintura pintura = lectorCSV.obtenerPinturaPorTitulo(nombre);
+        ImageView btnPlayAudio = view.findViewById(R.id.btnPlayAudio);
 
 
         if (pintura != null) {
@@ -81,6 +85,11 @@ public class DescripcionPinturaFragment extends Fragment {
             descripcionTextView.setText(pintura.getDescripcion());
             logAllDrawableIds();
         }
+
+        btnPlayAudio.setOnClickListener(v -> {
+            String texto = "Título: " + pintura.getTitulo() + ", Autor: " + pintura.getAutor() + ", Año: " + pintura.getAño() + ", Descripción: " + pintura.getDescripcion();
+            iniciarServicioAudio(texto);
+        });
         return view;
     }
 
@@ -98,4 +107,10 @@ public class DescripcionPinturaFragment extends Fragment {
         }
     }
 
+    private void iniciarServicioAudio(String texto) {
+        // Inicia el servicio aquí
+        Intent intent = new Intent(getContext(), AudioService.class);
+        intent.putExtra("texto", texto);
+        requireContext().startForegroundService(intent);
+    }
 }
