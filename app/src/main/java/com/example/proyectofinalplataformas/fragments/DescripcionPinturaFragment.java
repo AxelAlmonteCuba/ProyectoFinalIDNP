@@ -1,6 +1,6 @@
 package com.example.proyectofinalplataformas.fragments;
 
-import android.os.Bundle;
+import  android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import java.lang.reflect.Field;
 
 import com.example.proyectofinalplataformas.CSV.LectorCSV;
 import com.example.proyectofinalplataformas.Entitys.Pintura;
@@ -78,7 +79,23 @@ public class DescripcionPinturaFragment extends Fragment {
             autorTextView.setText(pintura.getAutor());
             añoTextView.setText(String.valueOf(pintura.getAño()));
             descripcionTextView.setText(pintura.getDescripcion());
+            logAllDrawableIds();
         }
         return view;
     }
+
+
+    public void logAllDrawableIds() {
+        Field[] fields = R.drawable.class.getDeclaredFields();
+        for (Field field : fields) {
+            try {
+                int drawableId = field.getInt(null);
+                String name = field.getName();
+                Log.d("DrawableID", "Name: " + name + " ID: " + drawableId);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
