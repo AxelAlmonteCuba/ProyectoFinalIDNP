@@ -3,6 +3,8 @@ package com.example.proyectofinalplataformas.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +34,7 @@ public class PinturasFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String nombreFragment;
+    private DescripcionPinturaFragment descripcionPinturaFragment = null;
 
     RecyclerView recyclerPinturas;
     ArrayList<PinturasVo> listaPinturas;
@@ -81,6 +84,8 @@ public class PinturasFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Seleccion: " + listaPinturas.get(recyclerPinturas.getChildAdapterPosition(v)).getNombre(),
                         Toast.LENGTH_SHORT).show();
+                descripcionPinturaFragment = DescripcionPinturaFragment.newInstance(listaPinturas.get(recyclerPinturas.getChildAdapterPosition(v)).getNombre());
+                LoadFragment(descripcionPinturaFragment);
             }
         });
         recyclerPinturas.setAdapter(adapter);
@@ -90,7 +95,7 @@ public class PinturasFragment extends Fragment {
     }
 
     private void llenarLista() {
-        listaPinturas.add(new PinturasVo("Mono liso 1","Davinci",R.drawable.uno));
+        listaPinturas.add(new PinturasVo("El grito","Davinci",R.drawable.uno));
         listaPinturas.add(new PinturasVo("Mono liso 2","Axelito",R.drawable.dos));
         listaPinturas.add(new PinturasVo("Mono liso 3","Feorella",R.drawable.tres));
         listaPinturas.add(new PinturasVo("Mono liso 4","Raulin",R.drawable.cuatro));
@@ -99,5 +104,12 @@ public class PinturasFragment extends Fragment {
         listaPinturas.add(new PinturasVo("Mono liso 7","Miguel Angel",R.drawable.siete));
         listaPinturas.add(new PinturasVo("Mono liso 8","Alguien",R.drawable.ocho));
 
+    }
+    public void LoadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.Home_Conteiner, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

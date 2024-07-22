@@ -90,8 +90,8 @@ public class FavoritosFragment extends Fragment {
 
     private void llenarLista() {
 
-        listaFavoritos.add(new FavoritosVo("La Gioconda","Davinci",R.drawable.uno,R.drawable.baseline_favorite_24));
-        listaFavoritos.add(new FavoritosVo("Noche estrellada","Axelito",R.drawable.dos,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("Noche estrellada","Davinci",R.drawable.uno,R.drawable.baseline_favorite_24));
+        listaFavoritos.add(new FavoritosVo("","Axelito",R.drawable.dos,R.drawable.baseline_favorite_24));
         listaFavoritos.add(new FavoritosVo("La ultima cena","Feorella",R.drawable.tres,R.drawable.baseline_favorite_24));
         listaFavoritos.add(new FavoritosVo("La gran ola","Raulin",R.drawable.cuatro,R.drawable.baseline_favorite_24));
         listaFavoritos.add(new FavoritosVo("Guernica","Aluyis",R.drawable.cinco,R.drawable.baseline_favorite_24));

@@ -11,36 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txtTituloPinturaDescripcion"
-            android:layout_width="175dp"
-            android:layout_height="38dp"
-            android:text="Mona Lisa"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="119dp"
-            tools:layout_editor_absoluteY="29dp" />
-
-        <ImageView
-            android:id="@+id/imgPinturaDescr"
-            android:layout_width="411dp"
-            android:layout_height="246dp"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/mona_lisa"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ScrollView
-            android:layout_width="411dp"
-            android:layout_height="403dp"
-            android:layout_marginTop="2dp"
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgPinturaDescr">
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,14 +26,43 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtTituloPinturaDescripcion"
+                    android:layout_width="207dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="248dp"
+                    android:gravity="center"
+                    android:text="Mona Lisa"
+
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/imgPinturaDescr"
+                    android:layout_width="407dp"
+                    android:layout_height="227dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/dos" />
+
+                <ImageView
+                    android:id="@+id/btnPlayAudio"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:layout_marginStart="305dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:src="@drawable/baseline_play_circle_outline_24" />
+
+                <TextView
                     android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="86dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="105dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="248dp"
                     android:gravity="start"
-                    android:text="Artista: "
+                    android:text="Artista:"
                     android:textColor="@color/white" />
 
                 <TextView
@@ -112,6 +119,7 @@
                     android:gravity="start"
                     android:text="TextView"
                     android:textColor="@color/white" />
+
             </LinearLayout>
         </ScrollView>
 
