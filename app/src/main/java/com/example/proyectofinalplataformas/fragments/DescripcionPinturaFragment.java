@@ -72,6 +72,7 @@ public class DescripcionPinturaFragment extends Fragment {
         LectorCSV lectorCSV = new LectorCSV(getActivity());
         Pintura pintura = lectorCSV.obtenerPinturaPorTitulo(nombre);
         ImageView btnPlayAudio = view.findViewById(R.id.btnPlayAudio);
+        Log.d("DES",nombre);
 
         if (pintura != null) {
             Log.d("descriotion", nombre);
