@@ -136,7 +136,7 @@ public class DescripcionPinturaFragment extends Fragment {
     private void iniciarServicioAudio(String texto) {
         Intent intent = new Intent(getContext(), AudioService.class);
         intent.putExtra(AudioService.TEXT, texto);
-        intent.putExtra(AudioService.COMMAND, AudioService.START);
+        intent.putExtra(AudioService.COMMAND, AudioService.PLAY);
         ContextCompat.startForegroundService(requireContext(), intent);
     }
 
