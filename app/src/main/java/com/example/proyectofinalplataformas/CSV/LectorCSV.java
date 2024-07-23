@@ -3,6 +3,8 @@ package com.example.proyectofinalplataformas.CSV;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.activity.result.contract.ActivityResultContracts;
+
 import com.example.proyectofinalplataformas.Entitys.Pintura;
 
 import java.io.BufferedReader;
@@ -30,13 +32,16 @@ public class LectorCSV {
             while ((linea = reader.readLine()) != null) {
                 String[] tokens = linea.split(",");
 
-                if (tokens.length == 4 && conttador > 0) {
+                if (tokens.length == 7 && conttador > 0) {
                     String titulo = tokens[0];
                     String autor = tokens[1];
                     Log.d("klecotr",titulo);
                     int año = Integer.parseInt(tokens[2]);
                     String descripcion = tokens[3];
-                    pinturas.add(new Pintura(titulo, autor, año, descripcion));
+                    String tecnica = tokens[4];
+                    String galeria = tokens[5];
+                    int img = Integer.parseInt(tokens[6]);
+                    pinturas.add(new Pintura(titulo, autor, año, descripcion,tecnica,galeria,img));
                 }
                 conttador++;
             }

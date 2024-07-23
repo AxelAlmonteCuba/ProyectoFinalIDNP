@@ -96,7 +96,7 @@ public class PinturasFragment extends Fragment {
 
     private void llenarLista() {
         listaPinturas.add(new PinturasVo("El grito","Davinci",R.drawable.uno));
-        listaPinturas.add(new PinturasVo("Mono liso 2","Axelito",R.drawable.dos));
+        listaPinturas.add(new PinturasVo("PICNIC: REMINISCENCIAS SOBRE LA MESA","Axelito",R.drawable.dos));
         listaPinturas.add(new PinturasVo("Mono liso 3","Feorella",R.drawable.tres));
         listaPinturas.add(new PinturasVo("Mono liso 4","Raulin",R.drawable.cuatro));
         listaPinturas.add(new PinturasVo("Mono liso 5","Aluyis",R.drawable.cinco));
