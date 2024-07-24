@@ -80,11 +80,15 @@ public class DescripcionPinturaFragment extends Fragment {
             TextView autorTextView = view.findViewById(R.id.txtArtistaDesc);
             TextView añoTextView = view.findViewById(R.id.txtFechaDesc);
             TextView descripcionTextView = view.findViewById(R.id.txtDescripcionDesc);
+            ImageView imgPintura = view.findViewById(R.id.imgPinturaDescr);
+
+
 
             tituloTextView.setText(pintura.getTitulo());
             autorTextView.setText(pintura.getAutor());
             añoTextView.setText(String.valueOf(pintura.getAño()));
             descripcionTextView.setText(pintura.getDescripcion());
+            imgPintura.setImageResource(pintura.getImg());
             logAllDrawableIds();
         }
 

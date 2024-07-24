@@ -11,10 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectofinalplataformas.Adapters.AdaptadorPinturas;
+import com.example.proyectofinalplataformas.CSV.LectorCSV;
+import com.example.proyectofinalplataformas.Entitys.Pintura;
 import com.example.proyectofinalplataformas.Entitys.PinturasVo;
 import com.example.proyectofinalplataformas.R;
 
@@ -73,6 +76,8 @@ public class PinturasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista=inflater.inflate(R.layout.fragment_pinturas, container, false);
+        TextView tituloGakeria = vista.findViewById(R.id.tituloGaleria);
+        tituloGakeria.setText("Galeria "+nombreFragment);
         listaPinturas=new ArrayList<>();
         recyclerPinturas=vista.findViewById(R.id.recyclerId);
         recyclerPinturas.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -95,6 +100,13 @@ public class PinturasFragment extends Fragment {
     }
 
     private void llenarLista() {
+        LectorCSV lectorCSV = new LectorCSV(getActivity());
+        ArrayList<Pintura> pinturas = lectorCSV.obtenerPinturaPorGaleria(nombreFragment);
+
+        for (Pintura pintura:pinturas) {
+            listaPinturas.add(new PinturasVo(pintura.getTitulo(),pintura.getAutor(),pintura.getImg()));
+        }
+
         listaPinturas.add(new PinturasVo("El grito","Davinci",R.drawable.uno));
         listaPinturas.add(new PinturasVo("PICNIC: REMINISCENCIAS SOBRE LA MESA","Axelito",R.drawable.dos));
         listaPinturas.add(new PinturasVo("Mono liso 3","Feorella",R.drawable.tres));

@@ -61,5 +61,15 @@ public class LectorCSV {
         return null;
     }
 
+    public ArrayList<Pintura> obtenerPinturaPorGaleria(String galeria) {
+        ArrayList<Pintura> pinturas = new ArrayList<Pintura>();
+        for (Pintura pintura : cargarPinturas()) {
+            if (pintura.getGaleria().trim().equalsIgnoreCase(galeria.trim())) {
+                pinturas.add(pintura);
+            }
+        }
+        return pinturas;
+    }
+
 }
 
