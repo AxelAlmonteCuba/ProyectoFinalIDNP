@@ -23,7 +23,13 @@ public class Pintura {
     }
 
 
+    public String getGaleria() {
+        return galeria;
+    }
 
+    public void setGaleria(String galeria) {
+        this.galeria = galeria;
+    }
 
     public String getTitulo() {
         return titulo;
