@@ -23,6 +23,7 @@ public class LectorCSV {
     }
 
     public List<Pintura> cargarPinturas(String archivo) {
+        Log.d("Carga ",archivo);
         List<Pintura> pinturas = new ArrayList<>();
         int contador = 0;
         try {
@@ -41,6 +42,7 @@ public class LectorCSV {
                     String tecnica = tokens[4];
                     String galeria = tokens[5];
                     int img = Integer.parseInt(tokens[6]);
+                    Log.d("Carga "+archivo,titulo);
                     pinturas.add(new Pintura(titulo, autor, año, descripcion, tecnica, galeria, img));
                 }
                 contador++;
@@ -76,12 +78,15 @@ public class LectorCSV {
             InputStream is = contexto.openFileInput("favoritos.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String linea;
+            int contador = 0;
             while ((linea = reader.readLine()) != null) {
                 String[] tokens = linea.split(",");
                 if (tokens.length > 0 && tokens[0].equalsIgnoreCase(pintura.getTitulo())) {
+                    Log.d("Favoritos", "Pintura ya es favorita: " + tokens[0]);
                     reader.close();
                     return true;
                 }
+                contador++;
             }
             reader.close();
         } catch (IOException e) {
@@ -89,6 +94,23 @@ public class LectorCSV {
         }
         return false;
     }
+    public void cargaFavorito() {
+        try {
+            InputStream is = contexto.openFileInput("favoritos.csv");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            String linea;
+            int contador = 0;
+            while ((linea = reader.readLine()) != null) {
+                String[] tokens = linea.split(",");
+                Log.d("crga fav",tokens[0]);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public void agregarAFavoritos(Pintura pintura) {
         if (!verificarSiEsFavorito(pintura)) {
@@ -99,6 +121,7 @@ public class LectorCSV {
                         pintura.getImg() + "\n";
                 fos.write(linea.getBytes());
                 fos.close();
+                Log.d("Favoritos", "Pintura agregada: " + linea);
                 Toast.makeText(contexto, "Agregado a favoritos", Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -108,6 +131,7 @@ public class LectorCSV {
             Toast.makeText(contexto, "Ya está en favoritos", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     public void removerDeFavoritos(Pintura pintura) {
         try {

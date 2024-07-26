@@ -88,8 +88,8 @@ public class DescripcionPinturaFragment extends Fragment {
             TextView descripcionTextView = view.findViewById(R.id.txtDescripcionDesc);
             ImageView imgPintura = view.findViewById(R.id.imgPinturaDescr);
 
-            Pintura pinturaFavorita = lectorCSV.obtenerPinturaPorTitulo(nombre, "paitings");
-            boolean nuevoEstado = pinturaFavorita.equals(null);
+            Pintura pinturaFavorita = lectorCSV.obtenerPinturaPorTitulo(nombre, "favoritos");
+            boolean nuevoEstado = pinturaFavorita!=null;
             actualizarIconoFavorito(btnFavoritos, nuevoEstado);
 
 
@@ -110,13 +110,14 @@ public class DescripcionPinturaFragment extends Fragment {
                 if (nuevoEstado) {
                     lectorCSV.removerDeFavoritos(pintura);
                 } else {
-                    lectorCSV.agregarAFavoritos(pinturaFavorita);
+                    lectorCSV.agregarAFavoritos(pintura);
 
                 }
+                lectorCSV.cargaFavorito();
+
             });
         }
         logAllDrawableIds();
-
 
 
         return view;
