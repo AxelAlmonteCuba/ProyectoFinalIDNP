@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,12 +24,16 @@ import com.example.proyectofinalplataformas.Entitys.Pintura;
 import com.example.proyectofinalplataformas.R;
 import com.example.proyectofinalplataformas.Service.AudioService;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
+import android.widget.Toast;
+
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -70,9 +75,10 @@ public class DescripcionPinturaFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_descripcion_pintura, container, false);
         LectorCSV lectorCSV = new LectorCSV(getActivity());
-        Pintura pintura = lectorCSV.obtenerPinturaPorTitulo(nombre);
+        Pintura pintura = lectorCSV.obtenerPinturaPorTitulo(nombre, "paitings");
         ImageView btnPlayAudio = view.findViewById(R.id.btnPlayAudio);
-        Log.d("DES",nombre);
+        ImageView btnFavoritos = view.findViewById(R.id.brnFavoritos);
+        Log.d("DES", nombre);
 
         if (pintura != null) {
             Log.d("descriotion", nombre);
@@ -82,6 +88,9 @@ public class DescripcionPinturaFragment extends Fragment {
             TextView descripcionTextView = view.findViewById(R.id.txtDescripcionDesc);
             ImageView imgPintura = view.findViewById(R.id.imgPinturaDescr);
 
+            Pintura pinturaFavorita = lectorCSV.obtenerPinturaPorTitulo(nombre, "paitings");
+            boolean nuevoEstado = pinturaFavorita.equals(null);
+            actualizarIconoFavorito(btnFavoritos, nuevoEstado);
 
 
             tituloTextView.setText(pintura.getTitulo());
@@ -90,13 +99,25 @@ public class DescripcionPinturaFragment extends Fragment {
             descripcionTextView.setText(pintura.getDescripcion());
             imgPintura.setImageResource(pintura.getImg());
             logAllDrawableIds();
-        }
+            btnPlayAudio.setOnClickListener(v -> {
+                String texto = "Título: " + pintura.getTitulo() + ", Autor: " + pintura.getAutor() + ", Año: " + pintura.getAño() + ", Descripción: " + pintura.getDescripcion();
+                iniciarServicioAudio(texto);
+                mostrarNotificacion(texto);
+            });
 
-        btnPlayAudio.setOnClickListener(v -> {
-            String texto = "Título: " + pintura.getTitulo() + ", Autor: " + pintura.getAutor() + ", Año: " + pintura.getAño() + ", Descripción: " + pintura.getDescripcion();
-            iniciarServicioAudio(texto);
-            mostrarNotificacion(texto);
-        });
+            btnFavoritos.setOnClickListener(v -> {
+
+                if (nuevoEstado) {
+                    lectorCSV.removerDeFavoritos(pintura);
+                } else {
+                    lectorCSV.agregarAFavoritos(pinturaFavorita);
+
+                }
+            });
+        }
+        logAllDrawableIds();
+
+
 
         return view;
     }
@@ -156,4 +177,14 @@ public class DescripcionPinturaFragment extends Fragment {
             }
         }
     }
+
+    private void actualizarIconoFavorito(ImageView button, boolean esFavorito) {
+        if (esFavorito) {
+            button.setImageResource(R.drawable.baseline_favorite_24);
+        } else {
+            button.setImageResource(R.drawable.baseline_favorite_border_24);
+        }
+    }
+
+
 }
