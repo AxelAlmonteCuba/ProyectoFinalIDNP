@@ -46,9 +46,11 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore:24.4.0")
     implementation ("com.google.android.gms:play-services-auth:19.2.0")
     implementation(libs.room.common)
+    implementation(libs.room.runtime)
 
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    annotationProcessor(libs.room.compiler)
 }

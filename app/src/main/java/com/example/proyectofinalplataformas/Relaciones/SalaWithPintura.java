@@ -6,13 +6,13 @@ import androidx.room.Relation;
 
 
 import com.example.proyectofinalplataformas.Entitys.Pintura;
-import com.example.proyectofinalplataformas.Entitys.Sala;
+import com.example.proyectofinalplataformas.Entitys.Galeria;
 
 import java.util.List;
 
 public class SalaWithPintura {
     @Embedded
-    public Sala sala;
+    public Galeria sala;
     @Relation(
             parentColumn = "salaID",
             entityColumn = "pinturaID"
