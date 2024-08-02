@@ -22,15 +22,15 @@ public class LectorCSV {
         this.contexto = contexto;
     }
 
-    public List<Pintura> cargarPinturas(String archivo) {
+    public List<Pintura> cargarPinturas() {
         List<Pintura> pinturas = new ArrayList<>();
         int contador = 0;
         try {
-            InputStream is = contexto.getAssets().open(archivo + ".csv");
+            InputStream is = contexto.getAssets().open("paitings.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String linea;
             while ((linea = reader.readLine()) != null) {
-                String[] tokens = linea.split(",");
+                String[] tokens = linea.split(";");
 
                 if (tokens.length == 7 && contador > 0) {
                     String titulo = tokens[0];
@@ -52,24 +52,7 @@ public class LectorCSV {
         return pinturas;
     }
 
-    public Pintura obtenerPinturaPorTitulo(String titulo, String archivo) {
-        for (Pintura pintura : cargarPinturas(archivo)) {
-            if (pintura.getTitulo().trim().equalsIgnoreCase(titulo.trim())) {
-                return pintura;
-            }
-        }
-        return null;
-    }
 
-    public ArrayList<Pintura> obtenerPinturaPorGaleria(String galeria) {
-        ArrayList<Pintura> pinturas = new ArrayList<>();
-        for (Pintura pintura : cargarPinturas("paintings")) {
-            if (pintura.getGaleria().trim().equalsIgnoreCase(galeria.trim())) {
-                pinturas.add(pintura);
-            }
-        }
-        return pinturas;
-    }
 
     public boolean verificarSiEsFavorito(Pintura pintura) {
         try {

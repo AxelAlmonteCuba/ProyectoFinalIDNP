@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.proyectofinalplataformas.CSV.LectorCSV;
+import com.example.proyectofinalplataformas.Database.AppDatabase;
+import com.example.proyectofinalplataformas.Database.DatabaseClient;
 import com.example.proyectofinalplataformas.Entitys.Pintura;
 import com.example.proyectofinalplataformas.R;
 import com.example.proyectofinalplataformas.Service.AudioService;
@@ -72,50 +74,42 @@ public class DescripcionPinturaFragment extends Fragment {
                 ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.POST_NOTIFICATIONS}, REQUEST_NOTIFICATION_PERMISSION);
             }
         }
-
         View view = inflater.inflate(R.layout.fragment_descripcion_pintura, container, false);
-        LectorCSV lectorCSV = new LectorCSV(getActivity());
-        Pintura pintura = lectorCSV.obtenerPinturaPorTitulo(nombre, "paitings");
         ImageView btnPlayAudio = view.findViewById(R.id.btnPlayAudio);
-        ImageView btnFavoritos = view.findViewById(R.id.brnFavoritos);
-        Log.d("DES", nombre);
+        //ImageView btnFavoritos = view.findViewById(R.id.btnFavoritos);
 
-        if (pintura != null) {
-            Log.d("descriotion", nombre);
-            TextView tituloTextView = view.findViewById(R.id.txtTituloPinturaDescripcion);
-            TextView autorTextView = view.findViewById(R.id.txtArtistaDesc);
-            TextView añoTextView = view.findViewById(R.id.txtFechaDesc);
-            TextView descripcionTextView = view.findViewById(R.id.txtDescripcionDesc);
-            ImageView imgPintura = view.findViewById(R.id.imgPinturaDescr);
+        new Thread(() -> {
+            AppDatabase db = DatabaseClient.getInstance(getContext().getApplicationContext()).getAppDatabase();
+            Pintura pintura = db.pinturaDao().getPintura(nombre);
 
-            Pintura pinturaFavorita = lectorCSV.obtenerPinturaPorTitulo(nombre, "paitings");
-            boolean nuevoEstado = pinturaFavorita.equals(null);
-            actualizarIconoFavorito(btnFavoritos, nuevoEstado);
+            if (pintura != null) {
+                getActivity().runOnUiThread(() -> {
+                    Log.d("descriotion", nombre);
+                    TextView tituloTextView = view.findViewById(R.id.txtTituloPinturaDescripcion);
+                    TextView autorTextView = view.findViewById(R.id.txtArtistaDesc);
+                    TextView añoTextView = view.findViewById(R.id.txtFechaDesc);
+                    TextView descripcionTextView = view.findViewById(R.id.txtDescripcionDesc);
+                    ImageView imgPintura = view.findViewById(R.id.imgPinturaDescr);
+
+                    tituloTextView.setText(pintura.getTitulo());
+                    autorTextView.setText(pintura.getAutor());
+                    añoTextView.setText(String.valueOf(pintura.getAño()));
+                    descripcionTextView.setText(pintura.getDescripcion());
+                    imgPintura.setImageResource(pintura.getImg());
+                    logAllDrawableIds();
+
+                    btnPlayAudio.setOnClickListener(v -> {
+                        String texto = "Título: " + pintura.getTitulo() + ", Autor: " + pintura.getAutor() + ", Año: " + pintura.getAño() + ", Descripción: " + pintura.getDescripcion();
+                        iniciarServicioAudio(texto);
+                        mostrarNotificacion(texto);
+                    });
+                });
+            } else {
+                Log.d("DES", "Pintura no encontrada: " + nombre);
+            }
+        }).start();
 
 
-            tituloTextView.setText(pintura.getTitulo());
-            autorTextView.setText(pintura.getAutor());
-            añoTextView.setText(String.valueOf(pintura.getAño()));
-            descripcionTextView.setText(pintura.getDescripcion());
-            imgPintura.setImageResource(pintura.getImg());
-            logAllDrawableIds();
-            btnPlayAudio.setOnClickListener(v -> {
-                String texto = "Título: " + pintura.getTitulo() + ", Autor: " + pintura.getAutor() + ", Año: " + pintura.getAño() + ", Descripción: " + pintura.getDescripcion();
-                iniciarServicioAudio(texto);
-                mostrarNotificacion(texto);
-            });
-
-            btnFavoritos.setOnClickListener(v -> {
-
-                if (nuevoEstado) {
-                    lectorCSV.removerDeFavoritos(pintura);
-                } else {
-                    lectorCSV.agregarAFavoritos(pinturaFavorita);
-
-                }
-            });
-        }
-        logAllDrawableIds();
 
 
 

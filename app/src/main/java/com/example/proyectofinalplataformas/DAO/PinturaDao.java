@@ -19,4 +19,8 @@ public interface PinturaDao {
     List<Pintura> getPinturasPorGaleria(String galeriaNombre);
     @Query("SELECT * FROM pintura WHERE titulo = :tituloP")
     Pintura getPintura(String tituloP);
+    @Query("SELECT * FROM pintura")
+    List<Pintura> getPinturas();
+    @Query("SELECT COUNT(*) FROM pintura WHERE titulo = :titulo")
+    int countByTitulo(String titulo);
 }

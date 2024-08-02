@@ -16,6 +16,17 @@ public class Pintura {
     public String galeria;
     public int img;
 
+    public Pintura(String titulo, String autor, int año, String descripcion, String tecnica, String galeria, int img) {
+
+        this.titulo = titulo;
+        this.autor = autor;
+        this.año = año;
+        this.descripcion = descripcion;
+        this.tecnica = tecnica;
+        this.galeria = galeria;
+        this.img = img;
+    }
+
     public int getId() {
         return id;
     }

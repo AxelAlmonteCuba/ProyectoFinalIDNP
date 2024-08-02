@@ -1,100 +1,98 @@
-titulo,autor,año,descripcion,tecnica,galeria,img
-La noche estrellada,Vincent van Gogh,1889,Pintura postimpresionista de Vincent van Gogh,pintura,V,2131165471
-PICNIC: REMINISCENCIAS SOBRE LA MESA,Cristal Luque Castro,2024,Trabajando a partir de lo figurativo y utilizando el soporte del lienzo como superficie sensible las obras pictóricas capturan pequeños momentos de pausa y conexión que hacen referencia al ser a sus dimensiones psíquicas y al espacio que habita con un interés por los universos que se construyen entre los individuos y su entorno.,Óleo sobre lienzo,IV,2131165474
-Bañera,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165306
-Canto a la luna,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165328
-El desayuno,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165306
-Meditar,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165422
-Antes de dormir,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165360
-Cafe en la tarde,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165327
-Transporte publico,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165493
-Buscando,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165326
-Tejiendo para el frio,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165488
-Paraguas,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165479
-Limonada rosa,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165397
-Chicha morada,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165330
-Coqueta,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165351
-Tomando el sol,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165490
-Llanto infinito,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165398
-Mirando la lluvia,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165423
-Reconciliacion,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165482
-Reina,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165483
-Resfrio,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165484
-Descanso,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165353
-Llanto infinito,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165398
-Pensamientos en la banqueta,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165480
-Lectura,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165396
-Llanto infinito,Sol Alejo,2024,una llama llamita,Acuarela sobre cartulina,II,2131165306
+titulo;autor;año;descripcion;tecnica;galeria;img
+PICNIC: REMINISCENCIAS SOBRE LA MESA;Cristal Luque Castro;2024;Trabajando a partir de lo figurativo y utilizando el soporte del lienzo como superficie sensible las obras pictóricas capturan pequeños momentos de pausa y conexión que hacen referencia al ser a sus dimensiones psíquicas y al espacio que habita con un interés por los universos que se construyen entre los individuos y su entorno.;Óleo sobre lienzo;IV;2131165474
+Bañera;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165306
+Canto a la luna;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165328
+El desayuno;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165306
+Meditar;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165422
+Antes de dormir;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165360
+Cafe en la tarde;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165327
+Transporte publico;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades..;Acuarela sobre cartulina;II;2131165493
+Buscando;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165326
+Tejiendo para el frio;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165488
+Paraguas;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165479
+Limonada rosa;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165397
+Chicha morada;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165330
+Coqueta;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165351
+Tomando el sol;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165490
+Llanto infinito;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165398
+Mirando la lluvia;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165423
+Reconciliacion;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165482
+Reina;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165483
+Resfrio;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165484
+Descanso;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165353
+Llanto infinito;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165398
+Pensamientos en la banqueta;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165480
+Lectura;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165396
+Llanto infinito;Sol Alejo;2024;Desde que suena el despertador hasta que apagamos la luz del cuarto y caemos en los sueños, seguimos un guion escrito pasivamente por nosotros, determinado por nuestras responsabilidades, esculpido por las interacciones y pulido por el disfrute o las adversidades.;Acuarela sobre cartulina;II;2131165306
 
-Pérdida de bosques,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165497
-Adónde,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165500
-Humo,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165501
-Defensores y defensoras,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165502
-Quina,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165503
-Mapa Perú,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165504
-Mapa Sudamérica,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165505
-Mandil de guardia,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165506
-Laboratorio,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165507
-Escritorio,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165498
-Jardines Eternos,Daniel Gallegos y Guadalupe Carrizo,2024,Jardines Eternos,Instalación,I,2131165499
+Pérdida de bosques;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165497
+Adónde;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165500
+Humo;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165501
+Defensores y defensoras;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165502
+Quina;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165503
+Mapa Perú;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165504
+Mapa Sudamérica;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165505
+Mandil de guardia;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165506
+Laboratorio;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165507
+Escritorio;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165498
+Jardines Eternos;Daniel Gallegos y Guadalupe Carrizo;2024;Jardines Eternos;Instalación;I;2131165499
 
-Ventana,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165517
-Escalera,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165520
-Picantería,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165521
-Ite de Francia,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165522
-S/T,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165523
-Pasaje en parque con una banca solitaria,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165524
-Paisaje,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165525
-Huellas II,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165526
-Ciudad nocturna,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165527
-Puerta añeja abierta,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165518
-Puerta añeja,Miguel Ángel Espinoza Salas,2024,Miguel Ángel Espinoza Salas,Grabado,IV,2131165519
+Ventana;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165517
+Escalera;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165520
+Picantería;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165521
+Ite de Francia;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165522
+S/T;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165523
+Pasaje en parque con una banca solitaria;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165524
+Paisaje;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165525
+Huellas II;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165526
+Ciudad nocturna;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165527
+Puerta añeja abierta;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165518
+Puerta añeja;Miguel Ángel Espinoza Salas;2024;Miguel Ángel Espinoza Salas;Grabado;IV;2131165519
 
-Inicio,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165528
-Despertar,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165539
-Inmersión,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165545
-Descubrimiento,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165546
-Senda,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165547
-Revelación,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165548
-Desvelo,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165549
-Testigo,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165550
-Silencio,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165551
-Encuentros,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165529
-Memoria,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165530
-Ecos,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165531
-Resplandor,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165532
-Vestigo,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165533
-Portal,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165534
-Despertar,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165535
-Secretos,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165536
-Enigma,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165537
-Vida,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165538
-Exploración,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165540
-Sutileza,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165541
-Reflexión,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165542
-Recuerdos,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165543
-Olvido,Milagros Quispe Mamani,2021,Cerrojos olvidados vidas desbloqueadas,Fotografía,V,2131165544
+Inicio;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165528
+Despertar;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165539
+Inmersión;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165545
+Descubrimiento;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165546
+Senda;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165547
+Revelación;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165548
+Desvelo;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165549
+Testigo;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165550
+Silencio;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165551
+Encuentros;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165529
+Memoria;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165530
+Ecos;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165531
+Resplandor;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165532
+Vestigo;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165533
+Portal;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165534
+Despertar;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165535
+Secretos;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165536
+Enigma;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165537
+Vida;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165538
+Exploración;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165540
+Sutileza;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165541
+Reflexión;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165542
+Recuerdos;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165543
+Olvido;Milagros Quispe Mamani;2021;Cerrojos olvidados vidas desbloqueadas;Fotografía;V;2131165544
 
-Conposición,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165508
-Conposición III,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165509
-Detalle,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165510
-Complementario,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165511
-Clásico,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165512
-Reconstrucción,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165513
-Conposición,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165514
-Detalle II,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165515
-Harley,Limber Arapa,2020,Exposicion IOndividual de Pintura:Reconstrucción,Mixta sobre lienzo,III,2131165516
+Conposición;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165508
+Conposición III;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165509
+Detalle;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165510
+Complementario;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165511
+Clásico;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165512
+Reconstrucción;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165513
+Conposición;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165514
+Detalle II;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165515
+Harley;Limber Arapa;2020;Exposicion Individual de Pintura:Reconstrucción;Mixta sobre lienzo;III;2131165516
 
-Caricaturizando Exponentes Picasso,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165552
-Caricaturizando Exponentes Dalí,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165554
-S/T,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165555
-Brumas,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165556
-S/T,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165557
-S.P. Carnoso,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165558
-Anidar,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165559
-Realidad Distopica-despojo de artista,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165560
-S/T,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165561
-Hojas de mi vida,Maria Luisa Livisi Niebles,2020,Proyecto 24,Arcilla,VI,2131165553
-
+Caricaturizando Exponentes Picasso;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165552
+Caricaturizando Exponentes Dalí;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165554
+S/T;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165555
+Brumas;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165556
+S/T;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165557
+S.P. Carnoso;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165558
+Anidar;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165559
+Realidad Distopica-despojo de artista;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165560
+S/T;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165561
+Hojas de mi vida;Maria Luisa Livisi Niebles;2020;Proyecto 24;Arcilla;VI;2131165553
 
 
