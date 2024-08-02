@@ -1,34 +1,23 @@
 package com.example.proyectofinalplataformas.Entitys;
 
-
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+@Entity(tableName = "pintura", indices = {@Index(value = "titulo", unique = true)})
 public class Pintura {
-    private String titulo;
-    private String autor;
-    private int año;
-    private String descripcion;
-    private String tecnica;
-    private String galeria;
-    private int img;
+    @PrimaryKey(autoGenerate = true)
+    public int id;
+    public String titulo;
+    public String autor;
+    public int año;
+    public String descripcion;
+    public String tecnica;
+    public String galeria;
+    public int img;
 
-    public Pintura(String titulo, String autor, int año, String descripcion, String tecnica, String galeria, int img) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.año = año;
-        this.descripcion = descripcion;
-        this.tecnica = tecnica;
-        this.galeria = galeria;
-        this.img = img;
-    }
-
-
-    public String getGaleria() {
-        return galeria;
-    }
-
-    public void setGaleria(String galeria) {
-        this.galeria = galeria;
+    public int getId() {
+        return id;
     }
 
     public String getTitulo() {
@@ -51,15 +40,11 @@ public class Pintura {
         return tecnica;
     }
 
-    public void setTecnica(String tecnica) {
-        this.tecnica = tecnica;
+    public String getGaleria() {
+        return galeria;
     }
 
     public int getImg() {
         return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
     }
 }

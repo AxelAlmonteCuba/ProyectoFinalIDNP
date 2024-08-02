@@ -1,13 +1,14 @@
 package com.example.proyectofinalplataformas.Entitys;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "autor")
-public class Autor {
+@Entity(tableName = "galeria")
+public class Galeria {
     @PrimaryKey(autoGenerate = true)
     public int id;
     public String nombre;
-    public String apellido;
+    public String tema;
 
     public int getId() {
         return id;
@@ -17,7 +18,7 @@ public class Autor {
         return nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getTema() {
+        return tema;
     }
 }
