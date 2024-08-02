@@ -2,6 +2,7 @@ package com.example.proyectofinalplataformas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,7 +21,6 @@ import com.example.proyectofinalplataformas.fragments.FavoritosFragment;
 import com.example.proyectofinalplataformas.fragments.GaleriasFragment;
 import com.example.proyectofinalplataformas.fragments.HomeFragment;
 import com.example.proyectofinalplataformas.fragments.MapFragment;
-import com.example.proyectofinalplataformas.fragments.PinturasFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +35,6 @@ public class HomeActivity extends AppCompatActivity {
     private GaleriasFragment galeriasFragment = null;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +45,16 @@ public class HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Intent intent1 = getIntent();
+        String nombres = intent1.getStringExtra("nombres");
+        String apellidos = intent1.getStringExtra("apellidos");
+        String correo = intent1.getStringExtra("correo");
+        // Revisión y corrección de Log.d para evitar NullPointerException
+        Log.d("HomeActivity", "Nombre: " + (nombres != null ? nombres : "No disponible"));
+        Log.d("HomeActivity", "Apellidos: " + (apellidos != null ? apellidos : "No disponible"));
+        Log.d("HomeActivity", "Correo: " + (correo != null ? correo : "No disponible"));
+
+
         fragmentManager = getSupportFragmentManager();
         BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavigation);
         TextView txtTitle = findViewById(R.id.txtTitle);
@@ -60,12 +69,20 @@ public class HomeActivity extends AppCompatActivity {
             finish(); // Finaliza
         });
         String nombre = getIntent().getStringExtra("nombres");
+
+        // Configurar el fragmento inicial
+        if (savedInstanceState == null) {
+            homeFragment = HomeFragment.newInstance(nombre);
+            LoadFragment(homeFragment);
+        }
+
+
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
                 if(menuItem.getItemId() == R.id.menu_home){
                     txtTitle.setText("Home");
-                    homeFragment = HomeFragment.newInstance(nombre);
+                    homeFragment = HomeFragment.newInstance(nombres);
                     LoadFragment(homeFragment);
                 } else if (menuItem.getItemId() == R.id.menu_galerias) {
                     txtTitle.setText("Galerias");
@@ -87,7 +104,7 @@ public class HomeActivity extends AppCompatActivity {
     private void LoadFragment(Fragment fragment){
         if(fragmentManager != null){
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.Home_Conteiner,fragment);
+            fragmentTransaction.replace(R.id.Home_Conteiner, fragment);
             fragmentTransaction.commit();
         }
     }

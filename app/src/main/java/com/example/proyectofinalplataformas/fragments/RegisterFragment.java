@@ -127,7 +127,7 @@ public class RegisterFragment extends Fragment {
                                                     if (task.isSuccessful()) {
                                                         Log.d(TAG, "User data saved successfully");
                                                         Toast.makeText(requireActivity(), "Usuario registrado", Toast.LENGTH_SHORT).show();
-                                                        loginFragment = LoginFragment.newInstance("", "");
+                                                        loginFragment = LoginFragment.newInstance("","");
                                                         LoadFragment(loginFragment);
                                                     } else {
                                                         Log.e(TAG, "Error al registrar la información del usuario", task.getException());
@@ -145,10 +145,11 @@ public class RegisterFragment extends Fragment {
                             }
                         }
                     });
+
         });
 
         txtLogin.setOnClickListener(v -> {
-            loginFragment = LoginFragment.newInstance("", "");
+            loginFragment = LoginFragment.newInstance("","");
             LoadFragment(loginFragment);
         });
 
