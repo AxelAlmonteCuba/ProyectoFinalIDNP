@@ -32,7 +32,25 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        new Thread(()->{
+            try {
+                LectorCSV lectorCSV = new LectorCSV(getApplication());
+                List<Pintura> pinturas = lectorCSV.cargarPinturas();
+                AppDatabase db = DatabaseClient.getInstance(getApplicationContext()).getAppDatabase();
 
+                for (Pintura p : pinturas
+                ) {
+                    if(db.pinturaDao().countByTitulo(p.getTitulo())== 0){
+                        db.pinturaDao().insert(p);
+                    }else{
+                        Log.d("databse","pintura existente");
+                    }
+                }
+            }
+            catch (Exception e){
+                Log.d("Databse","Error de insert");
+            }
+        }).start();
 
         mAuth = FirebaseAuth.getInstance();
 

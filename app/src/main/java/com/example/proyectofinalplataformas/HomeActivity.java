@@ -77,12 +77,12 @@ public class HomeActivity extends AppCompatActivity {
         }
 
 
-        bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 if(menuItem.getItemId() == R.id.menu_home){
                     txtTitle.setText("Home");
-                    homeFragment = HomeFragment.newInstance(nombres);
+                    homeFragment = HomeFragment.newInstance(nombre);
                     LoadFragment(homeFragment);
                 } else if (menuItem.getItemId() == R.id.menu_galerias) {
                     txtTitle.setText("Galerias");
@@ -97,6 +97,7 @@ public class HomeActivity extends AppCompatActivity {
                     favoritosFragment = FavoritosFragment.newInstance("","");
                     LoadFragment(favoritosFragment);
                 }
+                return true;
             }
         });
     }

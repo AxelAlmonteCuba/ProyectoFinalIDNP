@@ -148,7 +148,8 @@ public class LectorCSV {
             float[] coordinates = new float[2];
             coordinates[0] = Float.parseFloat(picture[1]);
             coordinates[1] = Float.parseFloat(picture[2]);
-            pictures.add(new Picture(coordinates, label));
+            String titulo = picture[3];
+            pictures.add(new Picture(coordinates, label,titulo));
         }
         return pictures;
     }

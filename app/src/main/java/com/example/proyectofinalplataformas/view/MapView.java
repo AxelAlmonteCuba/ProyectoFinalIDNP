@@ -10,6 +10,7 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 import com.example.proyectofinalplataformas.Entitys.Picture;
 import com.example.proyectofinalplataformas.Entitys.Room;
+import com.example.proyectofinalplataformas.fragments.DescripcionPinturaFragment;
 import com.example.proyectofinalplataformas.fragments.MapDescripcionFragment;
 
 import androidx.annotation.Nullable;
@@ -116,7 +117,7 @@ public class MapView extends View {
                 float pictureY = coordinates[1];
                 float radius = 30 / scaleFactor; // Ajustar el radio del círculo según el factor de escala
                 if (Math.pow(x - pictureX, 2) + Math.pow(y - pictureY, 2) <= Math.pow(radius, 2)) {
-                    openCuadroFragment(picture.getLabel());
+                    openCuadroFragment(picture.getTitulo());
                     return true;
                 }
             }
@@ -127,7 +128,7 @@ public class MapView extends View {
     private void openCuadroFragment(String pictureLabel) {
         FragmentActivity activity = (FragmentActivity) getContext();
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        MapDescripcionFragment cuadroFragment = MapDescripcionFragment.newInstance(pictureLabel);
+        DescripcionPinturaFragment cuadroFragment = DescripcionPinturaFragment.newInstance(pictureLabel);
         fragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, cuadroFragment)
                 .addToBackStack(null)
