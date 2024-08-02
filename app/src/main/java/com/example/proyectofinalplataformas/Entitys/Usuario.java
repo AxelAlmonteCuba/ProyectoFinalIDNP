@@ -9,9 +9,14 @@ public class Usuario {
     @PrimaryKey(autoGenerate = true)
     public int id;
     public String nombre;
+    public String apellido;
 
     public int getId() {
         return id;
+    }
+
+    public String getApellido() {
+        return apellido;
     }
 
     public String getNombre() {

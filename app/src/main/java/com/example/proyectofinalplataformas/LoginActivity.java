@@ -2,6 +2,7 @@ package com.example.proyectofinalplataformas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,8 +13,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.proyectofinalplataformas.CSV.LectorCSV;
+import com.example.proyectofinalplataformas.Database.AppDatabase;
+import com.example.proyectofinalplataformas.Database.DatabaseClient;
+import com.example.proyectofinalplataformas.Entitys.Pintura;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -23,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         mAuth = FirebaseAuth.getInstance();
 

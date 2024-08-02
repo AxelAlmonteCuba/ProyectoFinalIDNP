@@ -1,6 +1,7 @@
 package com.example.proyectofinalplataformas.fragments;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,7 +16,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.proyectofinalplataformas.CSV.LectorCSV;
+import com.example.proyectofinalplataformas.DAO.PinturaDao;
+import com.example.proyectofinalplataformas.Database.AppDatabase;
+import com.example.proyectofinalplataformas.Database.DatabaseClient;
 import com.example.proyectofinalplataformas.Entitys.AccountEntity;
+import com.example.proyectofinalplataformas.Entitys.Pintura;
 import com.example.proyectofinalplataformas.HomeActivity;
 import com.example.proyectofinalplataformas.R;
 import com.example.proyectofinalplataformas.ViewModel.ShareViewModel;
@@ -34,6 +41,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LoginFragment extends Fragment {
@@ -56,6 +64,7 @@ public class LoginFragment extends Fragment {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private GoogleSignInClient googleSignInClient;
+    PinturaDao pinturaDao;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -86,6 +95,10 @@ public class LoginFragment extends Fragment {
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(getActivity(), signInOptions);
+
+
+
+
 
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         btnLogin = view.findViewById(R.id.btnLogin);
