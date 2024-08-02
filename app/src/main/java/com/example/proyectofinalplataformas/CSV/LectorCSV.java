@@ -5,6 +5,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.proyectofinalplataformas.Entitys.Pintura;
+import com.example.proyectofinalplataformas.Entitys.Picture;
+import com.example.proyectofinalplataformas.Entitys.Room;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -133,5 +135,52 @@ public class LectorCSV {
             e.printStackTrace();
             Toast.makeText(contexto, "Error al remover de favoritos", Toast.LENGTH_SHORT).show();
         }
+    }
+    public static List<Room> readRoomsFromCSV(Context context, String fileName) {
+        List<Room> rooms = new ArrayList<>();
+        List<String[]> roomData = readCSV(context, fileName);
+        for (String[] room : roomData) {
+            if (room.length < 3) {
+                continue;
+            }
+            String name = room[0];
+            float[][] coordinates = new float[(room.length - 1) / 2][2];
+            for (int i = 1, j = 0; i < room.length; i += 2, j++) {
+                coordinates[j][0] = Float.parseFloat(room[i]);
+                coordinates[j][1] = Float.parseFloat(room[i + 1]);
+            }
+            rooms.add(new Room(name, coordinates));
+        }
+        return rooms;
+    }
+
+    public static List<Picture> readPicturesFromCSV(Context context, String fileName) {
+        List<Picture> pictures = new ArrayList<>();
+        List<String[]> pictureData = readCSV(context, fileName);
+        for (String[] picture : pictureData) {
+            if (picture.length < 3) {
+                continue;
+            }
+            String label = picture[0];
+            float[] coordinates = new float[2];
+            coordinates[0] = Float.parseFloat(picture[1]);
+            coordinates[1] = Float.parseFloat(picture[2]);
+            pictures.add(new Picture(coordinates, label));
+        }
+        return pictures;
+    }
+
+    private static List<String[]> readCSV(Context context, String fileName) {
+        List<String[]> data = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(context.getAssets().open(fileName)));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                data.add(line.split(","));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
     }
 }

@@ -2,12 +2,20 @@ package com.example.proyectofinalplataformas.fragments;
 
 import  android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
+import com.example.proyectofinalplataformas.R;
+import com.example.proyectofinalplataformas.CSV.LectorCSV;
+import com.example.proyectofinalplataformas.Entitys.Picture;
+import com.example.proyectofinalplataformas.Entitys.Room;
+import java.util.List;
 import com.example.proyectofinalplataformas.view.MapView;
 
 public class MapFragment extends Fragment {
@@ -37,9 +45,21 @@ public class MapFragment extends Fragment {
         }
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return new MapView(getContext());
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_map, container, false);
+
+        // Leer datos de los archivos CSV
+        List<Room> rooms = LectorCSV.readRoomsFromCSV(getContext(), "rooms.csv");
+        List<Picture> pictures = LectorCSV.readPicturesFromCSV(getContext(), "pictures.csv");
+
+        // Crear una instancia de CanvasView y agregarlo al contenedor
+        MapView canvasView = new MapView(getContext(), rooms, pictures);
+        ViewGroup canvasContainer = view.findViewById(R.id.canvas_container);
+        canvasContainer.addView(canvasView);
+
+        return view;
     }
+
 }

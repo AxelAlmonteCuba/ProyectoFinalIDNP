@@ -6,114 +6,144 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-public class MapView extends View{
+import android.graphics.Path;
+import android.view.MotionEvent;
+import com.example.proyectofinalplataformas.Entitys.Picture;
+import com.example.proyectofinalplataformas.Entitys.Room;
+import com.example.proyectofinalplataformas.fragments.MapDescripcionFragment;
 
-    private Paint paint;
-    private Paint paintText;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
-    public MapView(Context context) {
+import com.example.proyectofinalplataformas.R;
+
+import java.util.List;
+
+public class MapView extends View {
+    private Paint polygonPaint;
+    private Paint circlePaint;
+    private Paint textPaint;
+    private Path path;
+    private List<Room> rooms;
+    private List<Picture> pictures;
+    private float scaleFactor = 1.0f;
+
+    public MapView(Context context, List<Room> rooms, List<Picture> pictures) {
         super(context);
+        this.rooms = rooms;
+        this.pictures = pictures;
         init();
     }
 
-    public MapView(Context context, AttributeSet attrs) {
+    public MapView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public MapView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+    private void init() {
+        polygonPaint = createPaint(Color.RED, Paint.Style.STROKE, 5);
+        circlePaint = createPaint(Color.parseColor("#006400"), Paint.Style.FILL, 0);
+        textPaint = createPaint(Color.WHITE, Paint.Style.FILL, 60);
+        textPaint.setTextSize(40);
+        textPaint.setAntiAlias(true);
+        path = new Path();
     }
 
-    private void init() {
-        paint = new Paint();
-        paint.setColor(Color.WHITE);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(5);
-        paint.setTextSize(40);
-
-        paintText = new Paint();
-        paintText.setColor(Color.WHITE);
-        paintText.setTextSize(40);
-        paintText.setAntiAlias(true);
+    private Paint createPaint(int color, Paint.Style style, float strokeWidth) {
+        Paint paint = new Paint();
+        paint.setColor(color);
+        paint.setStyle(style);
+        paint.setStrokeWidth(strokeWidth);
+        return paint;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // SALA
-        canvas.drawLine(300, 100, 700, 100, paint); // Linea superior
-        canvas.drawLine(700, 100, 700, 200, paint); // Linea derecha
-        canvas.drawLine(300, 200, 500, 200, paint); // Linea inferior 1
-        canvas.drawLine(550, 200, 700, 200, paint); // Linea inferior 2
-        canvas.drawText("SALA", 450, 170, paintText);
+        // Calcular factor de escala dinámico
+        calculateScaleFactor();
 
-        // GALERIA VI
-        canvas.drawLine(100, 100, 300, 100, paint); // Linea superior
-        canvas.drawLine(100, 100, 100, 600, paint); // Linea izquierda
-        canvas.drawLine(300, 100, 300, 125, paint); // Linea derecha 1
-        canvas.drawLine(300, 175, 300, 450, paint); // Linea derecha 2
-        canvas.drawLine(100, 500, 300, 500, paint); // Linea inferior
-        canvas.drawText("GALERIA", 120, 300, paintText);
-        canvas.drawText("VI", 180, 350, paintText);
+        // Dibujar polígonos
+        for (Room room : rooms) {
+            path.reset();
+            float[][] coordinates = room.getCoordinates();
+            path.moveTo(coordinates[0][0] * scaleFactor, coordinates[0][1] * scaleFactor);
+            for (int j = 1; j < coordinates.length; j++) {
+                path.lineTo(coordinates[j][0] * scaleFactor, coordinates[j][1] * scaleFactor);
+            }
+            path.close();
+            canvas.drawPath(path, polygonPaint);
 
+            // Calcular el centro de la habitación
+            float[] center = calculatePolygonCenter(coordinates);
+            drawCenteredText(canvas, room.getName(), center[0] * scaleFactor, center[1] * scaleFactor, textPaint);
+        }
 
-        // GALERIA II
-        canvas.drawLine(100, 600, 300, 600, paint); // Linea superior
-        canvas.drawLine(100, 600, 100, 1000, paint); // Linea izquierda
-        canvas.drawLine(300, 700, 300, 800, paint); // Linea derecha 1
-        canvas.drawLine(300, 850, 300, 1000, paint); // Linea derecha 2
-        canvas.drawLine(100, 700, 175, 700, paint); // Linea inferior 1
-        canvas.drawLine(225, 700, 300, 700, paint); // Linea inferior 2
-        canvas.drawLine(100, 1000, 175, 1000, paint); // Linea inferior 3
-        canvas.drawLine(225, 1000, 300, 1000, paint); // Linea inferior 4
-        canvas.drawText("GALERIA", 120, 850, paintText);
-        canvas.drawText("II", 195, 900, paintText);
-        canvas.drawText("G - II", 160, 660, paintText);
-
-        // GALERIA III
-        canvas.drawLine(300, 600, 450, 600, paint); // Linea superior 1
-        canvas.drawLine(500, 600, 700, 600, paint); // Linea superior 2
-        canvas.drawLine(300, 600, 300, 625, paint); // Linea izquierda 1
-        canvas.drawLine(300, 675, 300, 700, paint); // Linea izquierda 2
-        canvas.drawLine(700, 600, 700, 700, paint); // Linea derecha
-        canvas.drawLine(300, 700, 400, 700, paint); // Linea inferior 1
-        canvas.drawLine(450, 700, 700, 700, paint); // Linea inferior 2
-        canvas.drawText("GALERIA III", 410, 660, paintText);
-
-        // GALERIA I
-        canvas.drawLine(300, 1050, 600, 1050, paint); // Linea superior 2
-        canvas.drawLine(650, 1050, 800, 1050, paint); // Linea superior 2
-        canvas.drawLine(100, 1000, 100, 1200, paint); // Linea izquierda
-        canvas.drawLine(300, 1100, 300, 1200, paint); // Separacion 1
-        canvas.drawLine(300, 1000, 300, 1050, paint); // Separacion 2
-        canvas.drawLine(800, 1050, 800, 1200, paint); // Linea derecha
-        canvas.drawLine(100, 1200, 800, 1200, paint); // Linea inferior
-        canvas.drawText("GALERIA I", 460, 1140, paintText);
-        canvas.drawText("G - I", 170, 1100, paintText);
-
-        // GALERIA V
-        canvas.drawLine(850, 600, 1010, 600, paint); // Linea superior
-        canvas.drawLine(850, 600, 850, 700, paint); // Linea izquierda 1
-        canvas.drawLine(850, 750, 850, 850, paint); // Linea izquierda 2
-        canvas.drawLine(1010, 600, 1010, 850, paint); // Linea derecha
-        canvas.drawLine(850, 850, 1010, 850, paint); // Linea inferior
-        canvas.drawText("GALERIA", 855, 700, paintText);
-        canvas.drawText("V", 915, 750, paintText);
-
-        // GALERIA IV
-        canvas.drawLine(850, 850, 850, 950, paint); // Linea izquierda 1
-        canvas.drawLine(850, 1000, 850, 1200, paint); // Linea izquierda 2
-        canvas.drawLine(1010, 850, 1010, 1200, paint); // Linea derecha
-        canvas.drawLine(850, 1100, 905, 1100, paint); // Linea inferior 1
-        canvas.drawLine(955, 1100, 1010, 1100, paint); // Linea inferior 2
-        canvas.drawLine(850, 1200, 1010, 1200, paint); // Linea inferior 3
-        canvas.drawText("GALERIA", 855, 950, paintText);
-        canvas.drawText("VI", 915, 1000, paintText);
-        canvas.drawText("G - VI", 890, 1160, paintText);
-
+        // Dibujar pinturas
+        for (Picture picture : pictures) {
+            float[] coordinates = picture.getCoordinates();
+            canvas.drawCircle(coordinates[0] * scaleFactor, coordinates[1] * scaleFactor, 30, circlePaint);
+            canvas.drawText(picture.getLabel(), coordinates[0] * scaleFactor - 15,
+                    coordinates[1] * scaleFactor + 15, textPaint);
+        }
     }
 
+    private void calculateScaleFactor() {
+        float maxX = 0, maxY = 0;
+        for (Room room : rooms) {
+            for (float[] coord : room.getCoordinates()) {
+                if (coord[0] > maxX) {
+                    maxX = coord[0];
+                }
+                if (coord[1] > maxY) {
+                    maxY = coord[1];
+                }
+            }
+        }
+        scaleFactor = Math.min(getWidth() / maxX, getHeight() / maxY);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            float x = event.getX() / scaleFactor;
+            float y = event.getY() / scaleFactor;
+            for (Room room : rooms) {
+                if (room.containsPoint(x, y)) {
+                    openCuadroFragment(room.getName());
+                    return true;
+                }
+            }
+        }
+        return super.onTouchEvent(event);
+    }
+
+    private void openCuadroFragment(String roomName) {
+        FragmentActivity activity = (FragmentActivity) getContext();
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        MapDescripcionFragment cuadroFragment = MapDescripcionFragment.newInstance(roomName);
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, cuadroFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private float[] calculatePolygonCenter(float[][] coordinates) {
+        float xSum = 0, ySum = 0;
+        int numPoints = coordinates.length;
+        for (float[] coord : coordinates) {
+            xSum += coord[0];
+            ySum += coord[1];
+        }
+        return new float[] { xSum / numPoints, ySum / numPoints };
+    }
+
+    private void drawCenteredText(Canvas canvas, String text, float x, float y, Paint paint) {
+        Paint.Align align = paint.getTextAlign();
+        paint.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText(text, x, y, paint);
+        paint.setTextAlign(align);
+    }
 }
