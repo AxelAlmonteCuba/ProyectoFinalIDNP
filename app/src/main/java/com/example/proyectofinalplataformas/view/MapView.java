@@ -110,9 +110,13 @@ public class MapView extends View {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             float x = event.getX() / scaleFactor;
             float y = event.getY() / scaleFactor;
-            for (Room room : rooms) {
-                if (room.containsPoint(x, y)) {
-                    openCuadroFragment(room.getName());
+            for (Picture picture : pictures) {
+                float[] coordinates = picture.getCoordinates();
+                float pictureX = coordinates[0];
+                float pictureY = coordinates[1];
+                float radius = 30 / scaleFactor; // Ajustar el radio del círculo según el factor de escala
+                if (Math.pow(x - pictureX, 2) + Math.pow(y - pictureY, 2) <= Math.pow(radius, 2)) {
+                    openCuadroFragment(picture.getLabel());
                     return true;
                 }
             }
@@ -120,10 +124,10 @@ public class MapView extends View {
         return super.onTouchEvent(event);
     }
 
-    private void openCuadroFragment(String roomName) {
+    private void openCuadroFragment(String pictureLabel) {
         FragmentActivity activity = (FragmentActivity) getContext();
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        MapDescripcionFragment cuadroFragment = MapDescripcionFragment.newInstance(roomName);
+        MapDescripcionFragment cuadroFragment = MapDescripcionFragment.newInstance(pictureLabel);
         fragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, cuadroFragment)
                 .addToBackStack(null)
@@ -137,7 +141,7 @@ public class MapView extends View {
             xSum += coord[0];
             ySum += coord[1];
         }
-        return new float[] { xSum / numPoints, ySum / numPoints };
+        return new float[]{xSum / numPoints, ySum / numPoints};
     }
 
     private void drawCenteredText(Canvas canvas, String text, float x, float y, Paint paint) {
